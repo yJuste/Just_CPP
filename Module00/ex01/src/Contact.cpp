@@ -11,9 +11,11 @@
 /* ************************************************************************** */
 #include "Contact.h"
 
+// Constructor
 Contact::Contact() : firstName(""), lastName(""), nickname(""),
 			phoneNumber(""), darkestSecret("") {}
 
+// Methode
 void	Contact::setContact(std::string fname, std::string lname,
 		std::string nname, std::string phone, std::string secret)
 {
@@ -24,6 +26,7 @@ void	Contact::setContact(std::string fname, std::string lname,
 	darkestSecret = secret;
 }
 
+// Getter
 std::string	Contact::getFirstName() const { return firstName; }
 std::string	Contact::getLastName() const { return lastName; }
 std::string	Contact::getNickname() const { return nickname; }

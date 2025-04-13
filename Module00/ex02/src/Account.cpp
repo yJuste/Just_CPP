@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.h                                        :+:      :+:    :+:   */
+/*   Account.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By:                                            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -9,41 +9,10 @@
 /*   Updated:   by Juste                              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#include "Account.h"
 
-// Standard Libraries
+// Constructor
 
-# include <iostream>
-# include <string>
+// Methode
 
-// setw
-# include <iomanip>
-
-// Dependance
-
-# include "Contact.h"
-
-class	PhoneBook
-{
-	private:
-		Contact		contact[8];
-		int		currentIndex;
-		int		totalContact;
-
-		std::string	truncateString(const std::string &str) const;
-
-	public:
-		// Constructor
-		PhoneBook();
-
-		// Methode
-		void	addContact(const Contact &contact);
-		void	displayContact(int index) const;
-		void	displayEveryContact() const;
-
-		// Getter
-		int	getNumberContact() const ;
-};
-
-#endif
+// Getter

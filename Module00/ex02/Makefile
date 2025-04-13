@@ -1,4 +1,4 @@
-NAME = phoneBook
+NAME = account
 
 # Flags
 CC = c++
@@ -11,9 +11,8 @@ INC_DIR = inc
 OBJ_DIR = obj
 
 # Files
-SRC =	main.cpp			\
-	PhoneBook.cpp			\
-	Contact.cpp
+SRC =	tests.cpp			\
+	Account.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

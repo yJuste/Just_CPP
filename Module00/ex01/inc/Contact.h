@@ -33,7 +33,7 @@ class	Contact
 		void setContact(std::string fname, std::string lname,
 			std::string nname, std::string phone, std::string secret);
 
-		// Getters
+		// Getter
 		std::string getFirstName() const;
 		std::string getLastName() const;
 		std::string getNickname() const;

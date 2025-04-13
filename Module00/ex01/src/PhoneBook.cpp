@@ -11,8 +11,10 @@
 /* ************************************************************************** */
 #include "PhoneBook.h"
 
+// Constructor
 PhoneBook::PhoneBook() : currentIndex(0), totalContact(0) {}
 
+// Methode
 void	PhoneBook::addContact(const Contact &newContact)
 {
 	contact[currentIndex] = newContact;
@@ -61,8 +63,10 @@ void	PhoneBook::displayEveryContact() const
 	}
 }
 
+// Getter
 int	PhoneBook::getNumberContact() const { return totalContact; }
 
+// Utils
 std::string	PhoneBook::truncateString(const std::string &str) const
 {
 	if (str.length() > 10)

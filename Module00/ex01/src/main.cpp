@@ -11,27 +11,10 @@
 /* ************************************************************************** */
 #include "main.h"
 
-std::string	getInput(const std::string& prompt)
-{
-	std::string	command;
-
-	std::cout << prompt;
-	std::getline(std::cin, command);
-	if (std::cin.eof() || command == "")
-	{
-		if (std::cin.eof())
-			std::cout << "\n";
-		std::cout << "\033[31mPhoneBook: invalid argument.\033[0m" << std::endl;
-		if (std::cin.eof())
-			std::exit(0);
-	}
-	if (command == "Je t'aime" || command == "I love you")
-	{
-		std::cout << "\033[32mPhoneBook: Me too ... :)\033[0m" << std::endl;
-		command = "";
-	}
-	return (command);
-}
+// ------------------------PROTOTYPE------------------------
+int				main(void);
+static std::string	getInput(const std::string& prompt);
+// ---------------------------------------------------------
 
 int	main(void)
 {
@@ -88,3 +71,26 @@ int	main(void)
 	}
 	return (0);
 }
+
+static std::string	getInput(const std::string& prompt)
+{
+	std::string	command;
+
+	std::cout << prompt;
+	std::getline(std::cin, command);
+	if (std::cin.eof() || command == "")
+	{
+		if (std::cin.eof())
+			std::cout << "\n";
+		std::cout << "\033[31mPhoneBook: invalid argument.\033[0m" << std::endl;
+		if (std::cin.eof())
+			std::exit(0);
+	}
+	if (command == "Je t'aime" || command == "I love you")
+	{
+		std::cout << "\033[32mPhoneBook: Me too ... :)\033[0m" << std::endl;
+		command = "";
+	}
+	return (command);
+}
+
