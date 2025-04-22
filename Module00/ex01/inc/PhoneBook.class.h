@@ -1,28 +1,50 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Contact.class.h                                             //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef PHONEBOOK_CLASS_H
+# define PHONEBOOK_CLASS_H
 
 // Standard Libraries
 
 # include <iostream>
 # include <string>
 
-// istringstream
-# include <sstream>
+// setw
+# include <iomanip>
 
-// ************************************************************************** //
-//                                  Classes                                   //
-// ************************************************************************** //
+// Dependance
 
 # include "Contact.class.h"
-# include "PhoneBook.class.h"
+
+// ************************************************************************** //
+//                               PhoneBook Class                              //
+// ************************************************************************** //
+
+class	PhoneBook
+{
+	private:
+		Contact		_contact[8];
+		int		_currentIndex;
+		int		_totalContact;
+
+		std::string truncateString( const std::string &str ) const;
+
+	public:
+		PhoneBook();
+
+		// Methode
+		void addContact( const Contact &contact );
+		void displayContact( const int index ) const;
+		void displayEveryContact() const;
+
+		// Getter
+		int getNumberContact() const;
+};
 
 #endif

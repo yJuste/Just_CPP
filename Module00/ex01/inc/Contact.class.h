@@ -1,28 +1,45 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Contact.class.h                                             //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef CONTACT_CLASS_H
+# define CONTACT_CLASS_H
 
 // Standard Libraries
 
-# include <iostream>
 # include <string>
 
-// istringstream
-# include <sstream>
-
 // ************************************************************************** //
-//                                  Classes                                   //
+//                               Contact Class                                //
 // ************************************************************************** //
 
-# include "Contact.class.h"
-# include "PhoneBook.class.h"
+class	Contact
+{
+	private:
+		std::string		_firstName;
+		std::string		_lastName;
+		std::string		_nickname;
+		std::string		_phoneNumber;
+		std::string		_darkestSecret;
+
+	public:
+		Contact();
+
+		// Methode
+		void setContact( const std::string fname, const std::string lname,
+			const std::string nname, const std::string phone, const std::string secret );
+
+		// Getter
+		std::string getFirstName() const;
+		std::string getLastName() const;
+		std::string getNickname() const;
+		std::string getPhoneNumber() const;
+		std::string getDarkestSecret() const;
+};
 
 #endif

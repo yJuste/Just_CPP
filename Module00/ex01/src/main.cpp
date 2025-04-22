@@ -1,14 +1,12 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By:                                            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by Juste                               #+#    #+#             */
-/*   Updated:   by Juste                              ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+// ************************************************************************** //
+//                                                                            //
+//                main.cpp                                                    //
+//                Created on  : xxx Apr xx xx:xx:xx 2025                      //
+//                Last update : xxx Apr xx xx:xx:xx 2025                      //
+//                Made by     : Juste - Jules Longin                          //
+//                                                                            //
+// ************************************************************************** //
+
 #include "main.h"
 
 // ------------------------PROTOTYPE------------------------
@@ -62,7 +60,7 @@ int	main(void)
 			if (!(iss >> index))
 			{
 				if (std::cin.eof())
-					std::cout << "\n";
+					std::cout << std::endl;
 				std::cout << "\033[31mPhoneBook: MMhhh that's not a number..\033[0m" << std::endl;
 				continue ;
 			}
@@ -81,7 +79,7 @@ static std::string	getInput(const std::string& prompt)
 	if (std::cin.eof() || command == "")
 	{
 		if (std::cin.eof())
-			std::cout << "\n";
+			std::cout << std::endl;
 		std::cout << "\033[31mPhoneBook: invalid argument.\033[0m" << std::endl;
 		if (std::cin.eof())
 			std::exit(0);

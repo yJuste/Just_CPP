@@ -1,34 +1,31 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Contact.cpp                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By:                                            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by Juste                               #+#    #+#             */
-/*   Updated:   by Juste                              ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-#include "Contact.h"
+// ************************************************************************** //
+//                                                                            //
+//                Contact.cpp                                                 //
+//                Created on  : xxx Apr xx xx:xx:xx 2025                      //
+//                Last update : xxx Apr xx xx:xx:xx 2025                      //
+//                Made by     : Juste - Jules Longin                          //
+//                                                                            //
+// ************************************************************************** //
 
-// Constructor
-Contact::Contact() : firstName(""), lastName(""), nickname(""),
-			phoneNumber(""), darkestSecret("") {}
+#include "Contact.class.h"
+
+Contact::Contact() : _firstName( "" ), _lastName( "" ), _nickname( "" ),
+			_phoneNumber( "" ), _darkestSecret( "" ) {}
 
 // Methode
-void	Contact::setContact(std::string fname, std::string lname,
-		std::string nname, std::string phone, std::string secret)
+void	Contact::setContact( const std::string fname, const std::string lname,
+		const std::string nname, const std::string phone, const std::string secret )
 {
-	firstName = fname;
-	lastName = lname;
-	nickname = nname;
-	phoneNumber = phone;
-	darkestSecret = secret;
+	_firstName = fname;
+	_lastName = lname;
+	_nickname = nname;
+	_phoneNumber = phone;
+	_darkestSecret = secret;
 }
 
 // Getter
-std::string	Contact::getFirstName() const { return firstName; }
-std::string	Contact::getLastName() const { return lastName; }
-std::string	Contact::getNickname() const { return nickname; }
-std::string	Contact::getPhoneNumber() const { return phoneNumber; }
-std::string	Contact::getDarkestSecret() const { return darkestSecret; }
+std::string	Contact::getFirstName() const { return _firstName; }
+std::string	Contact::getLastName() const { return _lastName; }
+std::string	Contact::getNickname() const { return _nickname; }
+std::string	Contact::getPhoneNumber() const { return _phoneNumber; }
+std::string	Contact::getDarkestSecret() const { return _darkestSecret; }

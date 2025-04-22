@@ -1,76 +1,69 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By:                                            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created:   by Juste                               #+#    #+#             */
-/*   Updated:   by Juste                              ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-#include "PhoneBook.h"
+// ************************************************************************** //
+//                                                                            //
+//                PhoneBook.cpp                                               //
+//                Created on  : xxx Apr xx xx:xx:xx 2025                      //
+//                Last update : xxx Apr xx xx:xx:xx 2025                      //
+//                Made by     : Juste - Jules Longin                          //
+//                                                                            //
+// ************************************************************************** //
 
-// Constructor
-PhoneBook::PhoneBook() : currentIndex(0), totalContact(0) {}
+#include "PhoneBook.class.h"
+
+PhoneBook::PhoneBook() : _currentIndex( 0 ), _totalContact( 0 ) {}
 
 // Methode
-void	PhoneBook::addContact(const Contact &newContact)
+void	PhoneBook::addContact( const Contact &newContact )
 {
-	contact[currentIndex] = newContact;
-	currentIndex = (currentIndex + 1) % 8;
-	if (totalContact < 8)
-		totalContact++;
+	_contact[_currentIndex] = newContact;
+	_currentIndex = (_currentIndex + 1) % 8;
+	if (_totalContact < 8)
+		_totalContact++;
 }
 
-void	PhoneBook::displayContact(int index) const
+void	PhoneBook::displayContact( const int index ) const
 {
-	if (index < 0 || index >= totalContact)
+	if (index < 0 || index >= _totalContact)
 	{
 		std::cout << "\033[31mPhoneBook: The Contact is out of bounds!\033[0m" << std::endl;
 		return ;
 	}
-	std::cout << "\033[32m" << std::setw(21) << "First Name : \033[0m" << contact[index].getFirstName() << std::endl;
-	std::cout << "\033[32m" << std::setw(21) << "Last Name : \033[0m" << contact[index].getLastName() << std::endl;
-	std::cout << "\033[32m" << std::setw(21) << "Nickname : \033[0m" << contact[index].getNickname() << std::endl;
-	std::cout << "\033[32m" << std::setw(21) << "Phone Number : \033[0m" << contact[index].getPhoneNumber() << std::endl;
-	std::cout << "\033[32m" << std::setw(21) << "Darkest Secret : \033[0m" << contact[index].getDarkestSecret() << std::endl;
+	std::cout << "\033[32m" << std::setw(21) << "First Name : \033[0m" << _contact[index].getFirstName() << std::endl;
+	std::cout << "\033[32m" << std::setw(21) << "Last Name : \033[0m" << _contact[index].getLastName() << std::endl;
+	std::cout << "\033[32m" << std::setw(21) << "Nickname : \033[0m" << _contact[index].getNickname() << std::endl;
+	std::cout << "\033[32m" << std::setw(21) << "Phone Number : \033[0m" << _contact[index].getPhoneNumber() << std::endl;
+	std::cout << "\033[32m" << std::setw(21) << "Darkest Secret : \033[0m" << _contact[index].getDarkestSecret() << std::endl;
 }
 
 void	PhoneBook::displayEveryContact() const
 {
 	int		i;
 
-	if (totalContact == 0)
+	if (_totalContact == 0)
 	{
 		std::cout << "\033[95mPhoneBook is empty, you have no friend 🥺.\033[0m" << std::endl;
 		return ;
 	}
-	i = 0;
 	std::cout << "\033[32m";
-	std::cout << std::setw(10) << "Index" << "|"
-		<< std::setw(10) << "First Name" << "|"
-		<< std::setw(10) << "Last Name" << "|"
-		<< std::setw(10) << "Nickname" << "|" << std::endl;
+	std::cout << std::setw(10) << "Index|" << std::setw(10) << "First Name|"
+		<< std::setw(10) << "Last Name|" << std::setw(10) << "Nickname|" << std::endl;
 	std::cout << "\033[0m";
-	while (i < totalContact)
+	i = 0;
+	while (i < _totalContact)
 	{
 		std::cout << std::setw(10) << i << "|"
-			<< std::setw(10) << truncateString(contact[i].getFirstName()) << "|"
-			<< std::setw(10) << truncateString(contact[i].getLastName()) << "|"
-			<< std::setw(10) << truncateString(contact[i].getNickname()) << "|" << std::endl;
+			<< std::setw(10) << truncateString(_contact[i].getFirstName()) << "|"
+			<< std::setw(10) << truncateString(_contact[i].getLastName()) << "|"
+			<< std::setw(10) << truncateString(_contact[i].getNickname()) << "|" << std::endl;
 		i++;
 	}
 }
 
 // Getter
-int	PhoneBook::getNumberContact() const { return totalContact; }
+int	PhoneBook::getNumberContact() const { return _totalContact; }
 
-// Utils
-std::string	PhoneBook::truncateString(const std::string &str) const
+std::string	PhoneBook::truncateString( const std::string &str ) const
 {
 	if (str.length() > 10)
 		return (str.substr(0, 9) + ".");
 	return (str);
 }
-
