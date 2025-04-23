@@ -31,8 +31,8 @@ class	Contact
 		Contact();
 
 		// Methode
-		void setContact( const std::string fname, const std::string lname,
-			const std::string nname, const std::string phone, const std::string secret );
+		void setContact( const std::string firstName, const std::string lastName,
+			const std::string nickname, const std::string phoneNumber, const std::string darkestSecret );
 
 		// Getter
 		std::string getFirstName() const;

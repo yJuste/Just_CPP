@@ -44,8 +44,8 @@ void	PhoneBook::displayEveryContact() const
 		return ;
 	}
 	std::cout << "\033[32m";
-	std::cout << std::setw(10) << "Index|" << std::setw(10) << "First Name|"
-		<< std::setw(10) << "Last Name|" << std::setw(10) << "Nickname|" << std::endl;
+	std::cout << std::setw(10) << "Index" << "|" << std::setw(10) << "First Name" << "|"
+		<< std::setw(10) << "Last Name" << "|" << std::setw(10) << "Nickname" << "|" << std::endl;
 	std::cout << "\033[0m";
 	i = 0;
 	while (i < _totalContact)

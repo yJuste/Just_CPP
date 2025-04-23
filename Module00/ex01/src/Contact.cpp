@@ -13,14 +13,14 @@ Contact::Contact() : _firstName( "" ), _lastName( "" ), _nickname( "" ),
 			_phoneNumber( "" ), _darkestSecret( "" ) {}
 
 // Methode
-void	Contact::setContact( const std::string fname, const std::string lname,
-		const std::string nname, const std::string phone, const std::string secret )
+void	Contact::setContact( const std::string firstName, const std::string lastName,
+		const std::string nickname, const std::string phoneNumber, const std::string darkestSecret )
 {
-	_firstName = fname;
-	_lastName = lname;
-	_nickname = nname;
-	_phoneNumber = phone;
-	_darkestSecret = secret;
+	_firstName = firstName;
+	_lastName = lastName;
+	_nickname = nickname;
+	_phoneNumber = phoneNumber;
+	_darkestSecret = darkestSecret;
 }
 
 // Getter
