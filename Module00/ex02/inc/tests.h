@@ -11,7 +11,6 @@
 
 // Standard Libraries
 
-# include <vector>
 # include <algorithm>
 # include <functional>
 

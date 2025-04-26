@@ -21,6 +21,7 @@
 class	Contact
 {
 	private:
+
 		std::string		_firstName;
 		std::string		_lastName;
 		std::string		_nickname;
@@ -28,6 +29,7 @@ class	Contact
 		std::string		_darkestSecret;
 
 	public:
+
 		Contact();
 
 		// Methode

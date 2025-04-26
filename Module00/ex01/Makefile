@@ -2,8 +2,8 @@ NAME = phoneBook
 
 # Flags
 CC = c++
-CFLAGS = -Wall -Wextra -Werror # -g
-FLAGS = -std=c++98
+CFLAGS = -Wall -Wextra -Werror -std=c++98 # -g
+FLAGS =
 
 # Directories
 SRC_DIR = src

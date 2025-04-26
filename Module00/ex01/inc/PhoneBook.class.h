@@ -29,6 +29,7 @@
 class	PhoneBook
 {
 	private:
+
 		Contact		_contact[8];
 		int		_currentIndex;
 		int		_totalContact;
@@ -36,6 +37,7 @@ class	PhoneBook
 		std::string truncateString( const std::string &str ) const;
 
 	public:
+
 		PhoneBook();
 
 		// Methode
