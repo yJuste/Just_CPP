@@ -1,6 +1,6 @@
 // ************************************************************************** //
 //                                                                            //
-//                tests.h                                                     //
+//                main.h                                                      //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
@@ -12,13 +12,12 @@
 
 // Standard Libraries
 
-# include <algorithm>
-# include <functional>
+# include <iostream>
 
 // ************************************************************************** //
 //                                  Classes                                   //
 // ************************************************************************** //
 
-# include "Account.hpp"
+# include "Zombie.class.h"
 
 #endif

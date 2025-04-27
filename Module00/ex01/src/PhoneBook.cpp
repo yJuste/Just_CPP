@@ -51,9 +51,9 @@ void	PhoneBook::displayEveryContact() const
 	while (i < _totalContact)
 	{
 		std::cout << std::setw(10) << i << "|"
-			<< std::setw(10) << truncateString(_contact[i].getFirstName()) << "|"
-			<< std::setw(10) << truncateString(_contact[i].getLastName()) << "|"
-			<< std::setw(10) << truncateString(_contact[i].getNickname()) << "|" << std::endl;
+			<< std::setw(10) << _truncateString(_contact[i].getFirstName()) << "|"
+			<< std::setw(10) << _truncateString(_contact[i].getLastName()) << "|"
+			<< std::setw(10) << _truncateString(_contact[i].getNickname()) << "|" << std::endl;
 		i++;
 	}
 }
@@ -61,7 +61,7 @@ void	PhoneBook::displayEveryContact() const
 // Getter
 int	PhoneBook::getNumberContact() const { return _totalContact; }
 
-std::string	PhoneBook::truncateString( const std::string &str ) const
+std::string	PhoneBook::_truncateString( const std::string &str ) const
 {
 	if (str.length() > 10)
 		return (str.substr(0, 9) + ".");

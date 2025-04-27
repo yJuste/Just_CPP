@@ -1,24 +1,20 @@
 // ************************************************************************** //
 //                                                                            //
-//                tests.h                                                     //
+//                main.cpp                                                    //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+# include "main.h"
 
-// Standard Libraries
+int	main(void)
+{
+	Zombie		*zombie = NULL;
 
-# include <algorithm>
-# include <functional>
-
-// ************************************************************************** //
-//                                  Classes                                   //
-// ************************************************************************** //
-
-# include "Account.hpp"
-
-#endif
+	zombie = zombie->newZombie("Charles");
+	delete zombie;
+	zombie->randomChump("Peaper");
+	return 0;
+}

@@ -34,7 +34,7 @@ class	PhoneBook
 		int		_currentIndex;
 		int		_totalContact;
 
-		std::string truncateString( const std::string &str ) const;
+		std::string _truncateString( const std::string &str ) const;
 
 	public:
 

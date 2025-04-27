@@ -1,24 +1,23 @@
 // ************************************************************************** //
 //                                                                            //
-//                tests.h                                                     //
+//                randomChump.cpp                                             //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Zombie.class.h"
 
-// Standard Libraries
+// Better to allocate on the stack when it ephemere.
+void	Zombie::randomChump( std::string name )
+{
+	Zombie		zombie = Zombie(name);
 
-# include <algorithm>
-# include <functional>
+	std::cout << name << ": "; _announce();
+}
 
-// ************************************************************************** //
-//                                  Classes                                   //
-// ************************************************************************** //
-
-# include "Account.hpp"
-
-#endif
+void	Zombie::_announce()
+{
+	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
+}

@@ -1,24 +1,17 @@
 // ************************************************************************** //
 //                                                                            //
-//                tests.h                                                     //
+//                newZombie.cpp                                               //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Zombie.class.h"
 
-// Standard Libraries
-
-# include <algorithm>
-# include <functional>
-
-// ************************************************************************** //
-//                                  Classes                                   //
-// ************************************************************************** //
-
-# include "Account.hpp"
-
-#endif
+// Allocation is great for using it after.
+Zombie	*Zombie::newZombie( std::string name )
+{
+	Zombie	*zombie = new Zombie(name);
+	return (zombie);
+}

@@ -1,24 +1,40 @@
 // ************************************************************************** //
 //                                                                            //
-//                tests.h                                                     //
+//                Zombie.class.h                                              //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef ZOMBIE_CLASS_H
+# define ZOMBIE_CLASS_H
 
 // Standard Libraries
 
-# include <algorithm>
-# include <functional>
+# include <iostream>
 
 // ************************************************************************** //
-//                                  Classes                                   //
+//                               Zombie Class                                 //
 // ************************************************************************** //
 
-# include "Account.hpp"
+class	Zombie
+{
+	private:
+
+		std::string		_name;
+
+		Zombie();
+
+		void _announce();
+
+	public:
+
+		Zombie( std::string name );
+		~Zombie();
+
+		Zombie *newZombie( std::string name );
+		void randomChump( std::string name );
+};
 
 #endif

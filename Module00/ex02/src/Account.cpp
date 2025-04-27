@@ -6,6 +6,7 @@
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
+
 #include "Account.hpp"
 
 int		Account::_nbAccounts = 0;

@@ -1,24 +1,15 @@
 // ************************************************************************** //
 //                                                                            //
-//                tests.h                                                     //
+//                Zombie.cpp                                                  //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Zombie.class.h"
 
-// Standard Libraries
+Zombie::Zombie() : _name( "" ) {}
+Zombie::Zombie( std::string name ) { _name = name; }
 
-# include <algorithm>
-# include <functional>
-
-// ************************************************************************** //
-//                                  Classes                                   //
-// ************************************************************************** //
-
-# include "Account.hpp"
-
-#endif
+Zombie::~Zombie() { std::cout << "Nooo, " << "\033[32m" << _name << "\033[0m" << " died ! Its last words: « Tell my mom I love her. »" << std::endl; }
