@@ -1,5 +1,7 @@
 NAME = account
 
+# Use VIMDIFF for seeing the difference.
+
 # Flags
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 # -g

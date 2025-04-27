@@ -53,6 +53,8 @@ void	Account::makeDeposit( int deposit )
 
 	_nbDeposits++;
 	Account::_totalNbDeposits++;
+	_amount += deposit;
+	Account::_totalAmount += deposit;
 }
 
 bool	Account::makeWithdrawal( int withdrawal )
@@ -67,11 +69,13 @@ bool	Account::makeWithdrawal( int withdrawal )
 		return (false);
 	}
 	std::cout << "withdrawal:" << withdrawal << ";"
-	<< "amount:" << checkAmount() + withdrawal << ";"
+	<< "amount:" << checkAmount() - withdrawal << ";"
 	<< "nb_withdrawals:" << _nbWithdrawals + 1 << std::endl;
 
 	_nbWithdrawals++;
 	Account::_totalNbWithdrawals++;
+	_amount -= withdrawal;
+	Account::_totalAmount -= withdrawal;
 	return (true);
 }
 
