@@ -1,4 +1,4 @@
-NAME = zombie
+NAME = zombieHorde
 
 # Flags
 CC = c++
@@ -13,8 +13,7 @@ OBJ_DIR = obj
 # Files
 SRC =	main.cpp			\
 	Zombie.cpp			\
-	newZombie.cpp			\
-	randomChump.cpp
+	zombieHorde.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

@@ -1,17 +1,26 @@
 // ************************************************************************** //
 //                                                                            //
-//                randomChump.cpp                                             //
+//                main.h                                                      //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#include "Zombie.class.h"
+#ifndef MAIN_H
+# define MAIN_H
 
-void	randomChump( std::string name )
-{
-	Zombie		zombie = Zombie(name);
+// Standard Libraries
 
-	std::cout << name << ": "; zombie.announce();
-}
+# include <iostream>
+
+// istringstream
+# include <sstream>
+
+// ************************************************************************** //
+//                                  Classes                                   //
+// ************************************************************************** //
+
+# include "Zombie.class.h"
+
+#endif

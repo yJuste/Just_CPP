@@ -1,6 +1,6 @@
 // ************************************************************************** //
 //                                                                            //
-//                randomChump.cpp                                             //
+//                zombieHorde.cpp                                             //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
@@ -9,9 +9,13 @@
 
 #include "Zombie.class.h"
 
-void	randomChump( std::string name )
+Zombie	*zombieHorde( int N, std::string name )
 {
-	Zombie		zombie = Zombie(name);
+	Zombie		*horde = new Zombie[N];
 
-	std::cout << name << ": "; zombie.announce();
+	for (int i = 0; i < N; i++)
+	{
+		horde[i].setName(name);
+	}
+	return (horde);
 }

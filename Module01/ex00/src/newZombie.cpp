@@ -9,9 +9,7 @@
 
 #include "Zombie.class.h"
 
-// Allocation is great for using it after.
-Zombie	*Zombie::newZombie( std::string name )
+Zombie	*newZombie( std::string name )
 {
-	Zombie	*zombie = new Zombie(name);
-	return (zombie);
+	return new Zombie(name);
 }

@@ -13,8 +13,8 @@ int	main(void)
 {
 	Zombie		*zombie = NULL;
 
-	zombie = zombie->newZombie("Charles");
+	zombie = newZombie("Charles");
 	delete zombie;
-	zombie->randomChump("Peaper");
+	randomChump("Switch");
 	return 0;
 }

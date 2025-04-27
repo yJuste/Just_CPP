@@ -10,6 +10,18 @@
 #include "Zombie.class.h"
 
 Zombie::Zombie() : _name( "" ) {}
-Zombie::Zombie( std::string name ) { _name = name; }
 
-Zombie::~Zombie() { std::cout << "Nooo, " << "\033[32m" << _name << "\033[0m" << " died ! Its last words: « Tell my mom I love her. »" << std::endl; }
+Zombie::Zombie( std::string name )
+{
+	_name = name;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << "Nooo, " << "\033[32m" << _name << "\033[0m" << " died ! Its last words: « Tell my mom I love her. »" << std::endl;
+}
+
+void	Zombie::announce()
+{
+	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
+}

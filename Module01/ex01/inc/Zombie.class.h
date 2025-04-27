@@ -30,10 +30,12 @@ class	Zombie
 		Zombie( std::string name );
 		~Zombie();
 
+		// Setter
+		void setName( std::string name );
+
 		void announce();
 };
 
-Zombie *newZombie( std::string name );
-void randomChump( std::string name );
+Zombie *zombieHorde( int N, std::string name );
 
 #endif

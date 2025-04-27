@@ -1,6 +1,6 @@
 // ************************************************************************** //
 //                                                                            //
-//                randomChump.cpp                                             //
+//                Zombie.cpp                                                  //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
@@ -9,9 +9,22 @@
 
 #include "Zombie.class.h"
 
-void	randomChump( std::string name )
-{
-	Zombie		zombie = Zombie(name);
+Zombie::Zombie() : _name( "" ) {}
 
-	std::cout << name << ": "; zombie.announce();
+Zombie::Zombie( std::string name )
+{
+	_name = name;
+}
+
+Zombie::~Zombie()
+{
+	std::cout << "Nooo, " << "\033[32m" << _name << "\033[0m" << " died ! Its last words: « Tell my mom I love her. »" << std::endl;
+}
+
+// Setter
+void	Zombie::setName( std::string name ) { _name = name; };
+
+void	Zombie::announce()
+{
+	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
 }
