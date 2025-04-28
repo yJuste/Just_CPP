@@ -18,13 +18,11 @@ int	main(int argc, char **argv)
 {
 	std::ofstream		outfile;
 
-	if (argc == 2
-	&& (std::strcmp(argv[1], "help") == 0 || std::strcmp(argv[1], "-help") == 0))
+	if (argc == 2 && (std::strcmp(argv[1], "help") == 0 || std::strcmp(argv[1], "-help") == 0))
 		return errors(argv[0], "help", 1);
 	if (argc != 4)
 		return errors(argv[0], "too many arguments", 2);
-	int errCopyFile = copyFile(argv[1], outfile);
-	if (errCopyFile == 3)
+	if (copyFile(argv[1], outfile) == 3)
 		return errors(argv[0], argv[1], 3);
 	outfile.close();
 	return 0;
