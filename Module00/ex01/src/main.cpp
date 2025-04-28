@@ -82,7 +82,7 @@ static std::string	getInput(const std::string& prompt)
 			std::cout << std::endl;
 		std::cout << "\033[31mPhoneBook: invalid argument.\033[0m" << std::endl;
 		if (std::cin.eof())
-			std::exit(0);
+			return (command);
 	}
 	if (command == "Je t'aime" || command == "I love you")
 	{
