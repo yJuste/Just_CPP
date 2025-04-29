@@ -10,7 +10,7 @@
 # include "main.h"
 
 // ---------------------------------PROTOTYPE-----------------------------------
-int		copyFile( std::ifstream & infile, std::ofstream & outfile, std::string filename );
+int		readFile( std::ifstream & infile, std::string filename );
 int		replaceOccurences( std::ifstream & infile, std::ofstream & outfile, char *first_string, char *second_string );
 int		errors( std::string executable, std::string error, int i );
 // -----------------------------------------------------------------------------
@@ -24,8 +24,10 @@ int	main(int argc, char **argv)
 		return errors(argv[0], "help", 1);
 	if (argc != 4)
 		return errors(argv[0], "too many arguments", 2);
-	if (copyFile(infile, outfile, argv[1]) == 3)
+	if (readFile(infile, argv[1]) == -1)
 		return errors(argv[0], argv[1], 3);
+
+	outfile.open((std::string)argv[1] + ".replace", std::ofstream::binary);
 
 	replaceOccurences(infile, outfile, argv[2], argv[3]);
 
@@ -34,12 +36,11 @@ int	main(int argc, char **argv)
 	return 0;
 }
 
-int	copyFile( std::ifstream & infile, std::ofstream & outfile, std::string filename )
+int	readFile( std::ifstream & infile, std::string filename )
 {
 	infile.open(filename, std::ifstream::binary);
 	if (!infile.is_open())
-		return 3;
-	outfile.open(filename + ".replace", std::ofstream::binary);
+		return -1;
 
 	infile.seekg(0, infile.end);
 	int size = infile.tellg();
