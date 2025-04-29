@@ -26,7 +26,9 @@ int	main(int argc, char **argv)
 		return errors(argv[0], "too many arguments", 2);
 	if (copyFile(infile, outfile, argv[1]) == 3)
 		return errors(argv[0], argv[1], 3);
+
 	replaceOccurences(infile, outfile, argv[2], argv[3]);
+
 	infile.close();
 	outfile.close();
 	return 0;
@@ -40,13 +42,12 @@ int	copyFile( std::ifstream & infile, std::ofstream & outfile, std::string filen
 	outfile.open(filename + ".replace", std::ofstream::binary);
 
 	infile.seekg(0, infile.end);
-	long size = infile.tellg();
+	int size = infile.tellg();
 	infile.seekg(0);
 
 	char *buf = new char[size];
 
 	infile.read(buf, size);
-	outfile.write(buf, size);
 
 	delete [] buf;
 	return 0;
@@ -62,9 +63,7 @@ int	replaceOccurences( std::ifstream & infile, std::ofstream & outfile, char *fi
 	while (infile.get(c))
 	{
 		int j = 0;
-		if (c != first_string[j])
-			outfile.put(c);
-		else if (c == first_string[j])
+		if (c == first_string[j])
 		{
 			j++;
 			int pos = infile.tellg();
@@ -79,7 +78,10 @@ int	replaceOccurences( std::ifstream & infile, std::ofstream & outfile, char *fi
 					outfile.put(first_string[k]);
 			}
 		}
+		else
+			outfile.put(c);
 	}
+
 	return 0;
 }
 
