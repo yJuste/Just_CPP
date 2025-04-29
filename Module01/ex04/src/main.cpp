@@ -68,7 +68,8 @@ int	replaceOccurences( std::ifstream & infile, std::ofstream & outfile, char *fi
 		{
 			j++;
 			int pos = infile.tellg();
-			while (j < (int)std::strlen(first_string) && infile.get(c) && c == first_string[j])
+			int len = (int)std::strlen(first_string);
+			while (j < len && infile.get(c) && c == first_string[j])
 				j++;
 			if (!first_string[j])
 				outfile.write(second_string, std::strlen(second_string));
