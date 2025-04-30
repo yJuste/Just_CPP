@@ -20,6 +20,16 @@
 
 class	Harl
 {
+	private:
+
+		void _debug() const;
+		void _info() const;
+		void _warning() const;
+		void _error() const;
+
+	public:
+
+		void complain( std::string level ) const;
 };
 
 #endif

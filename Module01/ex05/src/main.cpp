@@ -14,5 +14,38 @@
 
 int	main(void)
 {
+	Harl		automaton;
+
+	automaton.complain("DEBUG");
+	automaton.complain("ERROR");
+	automaton.complain("WARNING");
+	automaton.complain("ERROR");
+	automaton.complain("ERROR");
+	automaton.complain("WARNING");
+	automaton.complain("INFO");
+	automaton.complain("DEBUG");
+	automaton.complain("ERROR");
+	automaton.complain("ERROR");
+	automaton.complain("WARNING");
+	automaton.complain("DEBUG");
+	automaton.complain("ERROR");
+	automaton.complain("ERROR");
+	automaton.complain("INFO");
+	automaton.complain("DEBUG");
+	automaton.complain("ERROR");
+	automaton.complain("INFO");
+	automaton.complain("WARNING");
+	automaton.complain("ERROR");
+	automaton.complain("ERROR");
+	automaton.complain("DEBUG");
+	automaton.complain("ERROR");
+	automaton.complain("ERROR");
+	automaton.complain("INFO");
+	automaton.complain("WARNING");
+	automaton.complain("ERROR");
+	automaton.complain("DEBUG");
+	automaton.complain("WARNING");
+	automaton.complain("ERROR");
+	automaton.complain("DEBUG");
 	return 0;
 }
