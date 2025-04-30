@@ -11,11 +11,14 @@
 
 int	main(void)
 {
-	Fixed	fix;
+	Fixed		a;
+	Fixed		b( a );
+	Fixed		c;
 
-	int c = 3;
-	std::string s = "My friend call me a loser.";
-	fix.morph(s);
-	fix.morph(c);
+	c = b;
+
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
 	return 0;
 }

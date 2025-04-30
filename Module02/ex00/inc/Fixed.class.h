@@ -22,13 +22,24 @@ class	Fixed
 {
 	private:
 
+		int				_nb;
+		static const int		_bit;
+
 	public:
 
 		Fixed();
+		~Fixed();
 
-		// Methode
-		void morph( int c ) const;
-		void morph( std::string s ) const;
+		Fixed( const Fixed & );
+
+		// Operator overload
+		Fixed & operator = ( const Fixed & );
+
+		// Setter
+		void setRawBits( const int );
+
+		// Getter
+		int getRawBits() const;
 };
 
 #endif

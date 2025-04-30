@@ -9,14 +9,39 @@
 
 #include "Fixed.class.h"
 
-Fixed::Fixed() {}
+const int		Fixed::_bit = 8;
 
-void	Fixed::morph( int c ) const
+Fixed::Fixed() : _nb( 0 )
 {
-	std::cout << "Integer: " << c << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 }
 
-void	Fixed::morph( std::string s ) const
+Fixed::~Fixed()
 {
-	std::cout << "String: " << s << std::endl;
+	std::cout << "Destructor called" << std::endl;
+}
+
+Fixed::Fixed( const Fixed & src )
+{
+	std::cout << "Copy constructor called" << std::endl;
+	*this = src;
+}
+
+// Operator overload
+Fixed &Fixed::operator = ( const Fixed & src )
+{
+	std::cout << "Copy assignement operator called" << std::endl;
+	if (this != &src)
+		_nb = src.getRawBits();
+	return *this;
+}
+
+// Setter
+void	Fixed::setRawBits( const int raw ) { _nb = raw; }
+
+// Getter
+int	Fixed::getRawBits() const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return _nb;
 }
