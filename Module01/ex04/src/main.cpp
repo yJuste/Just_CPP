@@ -10,7 +10,7 @@
 # include "main.h"
 
 // ---------------------------------PROTOTYPE-----------------------------------
-int		readFile( std::ifstream & infile, std::string filename );
+int		readFile( std::ifstream & infile, char *filename );
 int		replaceOccurences( std::ifstream & infile, std::ofstream & outfile, char *first_string, char *second_string );
 int		errors( std::string executable, std::string error, int i );
 // -----------------------------------------------------------------------------
@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (readFile(infile, argv[1]) == -1)
 		return errors(argv[0], argv[1], 3);
 
-	outfile.open((std::string)argv[1] + ".replace", std::ofstream::binary);
+	outfile.open(std::strcat(argv[1], ".replace"), std::ofstream::binary);
 
 	replaceOccurences(infile, outfile, argv[2], argv[3]);
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	return 0;
 }
 
-int	readFile( std::ifstream & infile, std::string filename )
+int	readFile( std::ifstream & infile, char *filename )
 {
 	infile.open(filename, std::ifstream::binary);
 	if (!infile.is_open())
