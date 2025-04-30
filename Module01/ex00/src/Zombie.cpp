@@ -21,7 +21,7 @@ Zombie::~Zombie()
 	std::cout << "Nooo, " << "\033[32m" << _name << "\033[0m" << " died ! Its last words: « Tell my mom I love her. »" << std::endl;
 }
 
-void	Zombie::announce()
+void	Zombie::announce() const
 {
 	std::cout << "BraiiiiiiinnnzzzZ..." << std::endl;
 }

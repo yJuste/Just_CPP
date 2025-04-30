@@ -36,7 +36,7 @@ class	HumanA
 		HumanA( std::string name, Weapon & weapon );
 
 		// Methode
-		void attack();
+		void attack() const;
 };
 
 #endif

@@ -18,7 +18,7 @@ void	Harl::_debug( void ) const
 void	Harl::_info( void ) const
 {
 	std::cout << "\033[32m" << "[ INFO ]" << "\033[0m" << std::endl;
-	std::cout << "\033[32m" << "Détruit tout ce que je possède et tu verras une âme torturé, un corps décimé." << "\033[0m" << std::endl;
+	std::cout << "\033[32m" << "Détruit tout ce que je possède et tu verras mon âme torturée, mon corps décimé." << "\033[0m" << std::endl;
 }
 
 void	Harl::_warning( void ) const

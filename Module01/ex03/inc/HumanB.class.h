@@ -39,7 +39,7 @@ class	HumanB
 		void setWeapon( Weapon & weapon );
 
 		// Methode
-		void attack();
+		void attack() const;
 };
 
 #endif
