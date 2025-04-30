@@ -12,46 +12,57 @@
 const int		Fixed::_bit = 8;
 
 // ~Structor
-Fixed::Fixed() : _nb( 0 )
-{
-	std::cout << "Default constructor called" << std::endl;
-}
+Fixed::Fixed() : _nb( 0 ) {}
 
-Fixed::~Fixed()
-{
-	std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed() {}
 
-Fixed::Fixed( const Fixed & src )
-{
-	std::cout << "Copy constructor called" << std::endl;
-	*this = src;
-}
+Fixed::Fixed( const Fixed & src ) { *this = src; }
 
 Fixed::Fixed( const int nb )
 {
-	std::cout << "Int constructor called" << std::endl;
 	_nb = nb << _bit;
 }
 
 Fixed::Fixed( const float nb )
 {
-	std::cout << "Float constructor called" << std::endl;
 	_nb = roundf(nb * (1 << _bit));
 }
 
 // Operator overload
-Fixed	&Fixed::operator = ( const Fixed & src )
+Fixed	&Fixed::operator = ( const Fixed & f )
 {
-	std::cout << "Copy assignement operator called" << std::endl;
-	if (this != &src)
-		_nb = src.getRawBits();
+	if (this != &f)
+		_nb = f.getRawBits();
 	return *this;
 }
 
-std::ostream	&operator << ( std::ostream & o, const Fixed & src )
+Fixed	&Fixed::operator + ( const Fixed & f )
 {
-	return o << src.toFloat();
+	(void)f;
+	return *this;
+}
+
+Fixed	&Fixed::operator - ( const Fixed & f )
+{
+	(void)f;
+	return *this;
+}
+
+Fixed	&Fixed::operator * ( const Fixed & f )
+{
+	(void)f;
+	return *this;
+}
+
+Fixed	&Fixed::operator / ( const Fixed & f )
+{
+	(void)f;
+	return *this;
+}
+
+std::ostream	&operator << ( std::ostream & o, const Fixed & f )
+{
+	return o << f.toFloat();
 }
 
 // Methode
