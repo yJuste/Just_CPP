@@ -11,25 +11,25 @@
 
 void	Harl::_debug( void ) const
 {
-	std::cout << "\033[37m" << "[DEBUG]" << "\033[0m" << std::endl;
+	std::cout << "\033[37m" << "[ DEBUG ]" << "\033[0m" << std::endl;
 	std::cout << "\033[37m" << "Tu détruiras ma confiance, ma joie, mon coeur, et je deviendrai addict à toi, de tes gestes, de ton être et de tout ce que tu es." << "\033[0m" << std::endl;
 }
 
 void	Harl::_info( void ) const
 {
-	std::cout << "\033[32m" << "[INFO]" << "\033[0m" << std::endl;
+	std::cout << "\033[32m" << "[ INFO ]" << "\033[0m" << std::endl;
 	std::cout << "\033[32m" << "Détruit tout ce que je possède et tu verras une âme torturé, un corps décimé." << "\033[0m" << std::endl;
 }
 
 void	Harl::_warning( void ) const
 {
-	std::cout << "\033[31m" << "[WARNING]" << "\033[0m" << std::endl;
+	std::cout << "\033[31m" << "[ WARNING ]" << "\033[0m" << std::endl;
 	std::cout << "\033[31m" << "Je te chuchote c'est toi et moi pour la vie et tu le sais!" << "\033[0m" << std::endl;
 }
 
 void	Harl::_error( void ) const
 {
-	std::cout << "\033[34m" << "[ERROR]" << "\033[0m" << std::endl;
+	std::cout << "\033[34m" << "[ ERROR ]" << "\033[0m" << std::endl;
 	std::cout << "\033[34m" << "Tu ne m'atteindras plus jamais." << "\033[0m" << std::endl;
 }
 
