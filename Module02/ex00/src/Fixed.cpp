@@ -1,23 +1,22 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Fixed.cpp                                                   //
 //                Created on  : xxx Apr xx xx:xx:xx 2025                      //
 //                Last update : xxx Apr xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Fixed.class.h"
 
-// Standard Libraries
+Fixed::Fixed() {}
 
-# include <iostream>
+void	Fixed::morph( int c ) const
+{
+	std::cout << "Integer: " << c << std::endl;
+}
 
-// ************************************************************************** //
-//                                    Classes                                 //
-// ************************************************************************** //
-
-# include "Fixed.class.h"
-
-#endif
+void	Fixed::morph( std::string s ) const
+{
+	std::cout << "String: " << s << std::endl;
+}
