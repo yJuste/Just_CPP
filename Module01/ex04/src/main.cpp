@@ -27,7 +27,7 @@ int	main(int argc, char **argv)
 	if (readFile(infile, argv[1]) == -1)
 		return errors(argv[0], argv[1], 3);
 
-	outfile.open(std::strcat(argv[1], ".replace"), std::ofstream::binary);
+	outfile.open((std::string(argv[1]) + ".replace").c_str(), std::ofstream::binary);
 
 	replaceOccurences(infile, outfile, argv[2], argv[3]);
 
