@@ -23,7 +23,7 @@ class	Fixed
 	private:
 
 		int				_nb;
-		static const int		_bit;
+		static const int		s_bit;
 
 	public:
 
@@ -47,6 +47,11 @@ class	Fixed
 		bool operator <= ( const Fixed & ) const;
 		bool operator == ( const Fixed & ) const;
 		bool operator != ( const Fixed & ) const;
+
+		Fixed & operator ++ ();
+		Fixed & operator -- ();
+		Fixed operator ++ ( int );
+		Fixed operator -- ( int );
 
 		// Methode
 		float toFloat() const;

@@ -11,9 +11,8 @@ INC_DIR = inc
 OBJ_DIR = obj
 
 # Files
-SRC =	main.cpp				\
-	Fixed.cpp				\
-	OperatorOverloadFixed.cpp
+SRC =	main.cpp			\
+	Fixed.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
