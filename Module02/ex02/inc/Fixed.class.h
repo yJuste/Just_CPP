@@ -36,10 +36,17 @@ class	Fixed
 
 		// Operator overload
 		Fixed & operator = ( const Fixed & );
-		Fixed & operator + ( const Fixed & );
-		Fixed & operator - ( const Fixed & );
-		Fixed & operator * ( const Fixed & );
-		Fixed & operator / ( const Fixed & );
+		Fixed operator + ( const Fixed & ) const;
+		Fixed operator - ( const Fixed & ) const;
+		Fixed operator * ( const Fixed & ) const;
+		Fixed operator / ( const Fixed & ) const;
+
+		bool operator > ( const Fixed & ) const;
+		bool operator < ( const Fixed & ) const;
+		bool operator >= ( const Fixed & ) const;
+		bool operator <= ( const Fixed & ) const;
+		bool operator == ( const Fixed & ) const;
+		bool operator != ( const Fixed & ) const;
 
 		// Methode
 		float toFloat() const;

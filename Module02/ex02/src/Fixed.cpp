@@ -28,43 +28,6 @@ Fixed::Fixed( const float nb )
 	_nb = roundf(nb * (1 << _bit));
 }
 
-// Operator overload
-Fixed	&Fixed::operator = ( const Fixed & f )
-{
-	if (this != &f)
-		_nb = f.getRawBits();
-	return *this;
-}
-
-Fixed	&Fixed::operator + ( const Fixed & f )
-{
-	(void)f;
-	return *this;
-}
-
-Fixed	&Fixed::operator - ( const Fixed & f )
-{
-	(void)f;
-	return *this;
-}
-
-Fixed	&Fixed::operator * ( const Fixed & f )
-{
-	(void)f;
-	return *this;
-}
-
-Fixed	&Fixed::operator / ( const Fixed & f )
-{
-	(void)f;
-	return *this;
-}
-
-std::ostream	&operator << ( std::ostream & o, const Fixed & f )
-{
-	return o << f.toFloat();
-}
-
 // Methode
 float	Fixed::toFloat() const
 {
