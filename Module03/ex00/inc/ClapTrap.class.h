@@ -22,8 +22,38 @@ class	ClapTrap
 {
 	private:
 
+		std::string		_name;
+		int			_hitPoint;
+		int			_energyPoint;
+		int			_attackDamage;
+
+		ClapTrap();
+
 	public:
 
+		~ClapTrap();
+
+		ClapTrap( const ClapTrap & );
+		ClapTrap( std::string );
+
+		// Operator Overload
+
+		ClapTrap & operator = ( const ClapTrap & );
+
+		// Methode
+
+		void attack( const std::string & );
+		void takeDamage( unsigned int );
+		void beRepaired( unsigned int );
+
+		// Getter
+
+		std::string getName() const;
+		int getHitPoint() const;
+		int getEnergyPoint() const;
+		int getAttackDamage() const;
 };
+
+std::ostream & operator << ( std::ostream &, const ClapTrap & );
 
 #endif
