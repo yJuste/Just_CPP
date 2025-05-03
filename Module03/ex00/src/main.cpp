@@ -11,11 +11,12 @@
 
 int	main(void)
 {
-	ClapTrap	martin("martin");
+	ClapTrap	Martin("Martin");
 	ClapTrap	Jean("Jean");
+	ClapTrap	Spice("Spice");
 
 	std::cout << std::endl;
-	martin.attack("Jean");
+	Martin.attack("Jean");
 	Jean.takeDamage(2);
 	Jean.takeDamage(2);
 	Jean.takeDamage(2);
@@ -24,19 +25,25 @@ int	main(void)
 	Jean.takeDamage(2);
 	Jean.takeDamage(2);
 	Jean.takeDamage(2);
-	martin.beRepaired(1);
-	martin.beRepaired(1);
-	martin.beRepaired(1);
-	martin.beRepaired(1);
-	martin.beRepaired(1);
-	martin.beRepaired(1);
-	martin.beRepaired(100);
-	martin.beRepaired(0);
-	martin.beRepaired(0);
-	martin.beRepaired(0);
-	martin.beRepaired(0);
-	martin.takeDamage(1000);
-	martin.takeDamage(1000);
+	std::cout << std::endl;
+	Martin.beRepaired(1);
+	Martin.beRepaired(100);
+	Martin.takeDamage(1000);
+	Martin.takeDamage(1000);
+	Martin.attack("Jean");
+	std::cout << std::endl;
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
+	Spice.beRepaired(0);
 	std::cout << std::endl;
 	return 0;
 }

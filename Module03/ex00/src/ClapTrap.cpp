@@ -36,13 +36,15 @@ std::ostream	&operator << ( std::ostream & o, const ClapTrap & c ) { return o <<
 
 void	ClapTrap::attack( const std::string & target )
 {
-	if (_energyPoint == 0)
-	{
+	if (_hitPoint == 0)
+		std::cout << "ClaTrap " << "\033[31m" << _name << "\033[0m" << " is dead." << std::endl;
+	else if (_energyPoint == 0)
 		std::cout << "ClaTrap " << "\033[33m" << _name << " has no more energy!" << "\033[0m" << std::endl;
-		return ;
+	else
+	{
+		_energyPoint -= 1;
+		std::cout << "ClapTrap " << "\033[32m" << _name << "\033[0m" << " attacks " << "\033[32m" << target << "\033[0m" << ", causing " << "\033[32m" << _attackDamage << "\033[0m" << " points of damage!" << std::endl;
 	}
-	_energyPoint -= 1;
-	std::cout << "ClapTrap " << "\033[32m" << _name << "\033[0m" << " attacks " << "\033[32m" << target << "\033[0m" << ", causing " << "\033[32m" << _attackDamage << "\033[0m" << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage( unsigned int amount )
