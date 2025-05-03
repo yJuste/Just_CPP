@@ -23,6 +23,7 @@ ClapTrap	&ClapTrap::operator = ( const ClapTrap & c )
 {
 	if (this != &c)
 	{
+		_name = c.getName();
 		_hitPoint = c.getHitPoint();
 		_energyPoint = c.getEnergyPoint();
 		_attackDamage = c.getAttackDamage();
@@ -75,6 +76,7 @@ void	ClapTrap::beRepaired( unsigned int amount )
 }
 
 // Getter
+
 std::string	ClapTrap::getName() const { return _name; }
 int	ClapTrap::getHitPoint() const { return _hitPoint; }
 int	ClapTrap::getEnergyPoint() const { return _energyPoint; }
