@@ -11,7 +11,6 @@
 
 // ----------------------PROTOTYPE----------------------
 int		errors( std::string executable, int i );
-bool		strToFloat( std::string s, float & n );
 // -----------------------------------------------------
 
 int	main(int argc, char **argv)
@@ -54,8 +53,9 @@ int	main(int argc, char **argv)
 int	errors( std::string executable, int i )
 {
 	if (i == 1)
-		std::cout << executable.substr(2) << ": " << "\033[31m" << "error" << "\033[0m" << ": Too many/few arguments: " << "./bsp [point_x] [point_y]" << std::endl;
+		std::cout << executable.substr(2) << ": " << "\033[31m" << "error" << "\033[0m" << ": Too many/few arguments: " << executable << " [point_x] [point_y]" << std::endl;
 	else if (i == 2)
 		std::cout << executable.substr(2) << ": " << "\033[31m" << "error" << "\033[0m" << ": Conversion error: " << "The number is not a float." << std::endl;
+	std::cout << executable.substr(2) << ": " << "See if the point is part of triangle ABC." << std::endl;
 	return i;
 }
