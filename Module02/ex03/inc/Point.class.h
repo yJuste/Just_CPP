@@ -14,12 +14,38 @@
 
 # include <iostream>
 
+// Dependences
+
+# include "Fixed.class.h"
+
 // ************************************************************************** //
 //                                Point Class                                 //
 // ************************************************************************** //
 
 class	Point
 {
+	private:
+
+		const Fixed		_x;
+		const Fixed		_y;
+
+		Point & operator = ( const Point & );
+
+	public:
+
+		Point();
+		~Point();
+
+		Point ( const Point & );
+		Point ( const float, const float );
+
+		// Getter
+		const Fixed & getX() const;
+		const Fixed & getY() const;
 };
+
+std::ostream & operator << ( std::ostream & , const Point & );
+
+bool bsp( const Point, const Point, const Point, const Point );
 
 #endif

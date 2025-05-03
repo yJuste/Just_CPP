@@ -12,10 +12,11 @@
 const int		Fixed::s_bit = 8;
 
 // ~Structor
+
 Fixed::Fixed() : _nb( 0 ) {}
 Fixed::~Fixed() {}
 
-Fixed::Fixed( const Fixed & src ) { *this = src; }
+Fixed::Fixed( const Fixed & f ) { *this = f; }
 Fixed::Fixed( const int nb ) { _nb = nb << s_bit; }
 Fixed::Fixed( const float nb ) { _nb = roundf(nb * (1 << s_bit)); }
 
@@ -46,6 +47,7 @@ const Fixed	Fixed::operator -- ( int ) { Fixed t = *this; _nb--; return t; }
 std::ostream	&operator << ( std::ostream & o, const Fixed & f ) { return o << f.toFloat(); }
 
 // Methode
+
 float	Fixed::toFloat() const { return static_cast<float>(_nb) / (1 << s_bit); }
 
 int	Fixed::toInt() const { return _nb >> s_bit; }
@@ -56,7 +58,9 @@ Fixed	&Fixed::max( Fixed & a, Fixed & b) { return (a > b) ? a : b; }
 const Fixed	&Fixed::max( const Fixed & a, const Fixed & b) { return (a > b) ? a : b; }
 
 // Setter
+
 void	Fixed::setRawBits( const int raw ) { _nb = raw; }
 
 // Getter
+
 int	Fixed::getRawBits() const { return _nb; }
