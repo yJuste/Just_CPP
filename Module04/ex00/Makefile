@@ -12,7 +12,11 @@ OBJ_DIR = obj
 
 # Files
 SRC =	main.cpp			\
-	X.cpp
+	Animal.cpp			\
+	Cat.cpp				\
+	Dog.cpp				\
+	WrongAnimal.cpp			\
+	WrongCat.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

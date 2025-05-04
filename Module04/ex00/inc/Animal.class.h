@@ -1,27 +1,49 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Animal.class.h                                              //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef ANIMAL_CLASS_H
+# define ANIMAL_CLASS_H
 
 // Standard Libraries
 
 # include <iostream>
 
 // ************************************************************************** //
-//                                    Classes                                 //
+//                                Animal Class                                //
 // ************************************************************************** //
 
-# include "Animal.class.h"
-# include "Cat.class.h"
-# include "Dog.class.h"
-# include "WrongAnimal.class.h"
-# include "WrongCat.class.h"
+class	Animal
+{
+	protected:
+
+		std::string		_type;
+
+	public:
+
+		Animal();
+		virtual ~Animal();
+
+		Animal( const Animal & );
+
+		Animal & operator = ( const Animal & );
+
+		// Methode
+
+		virtual void makeSound() const;
+
+		// ~Etter
+
+		std::string getType() const;
+
+		void setType( const std::string & );
+};
+
+std::ostream & operator << ( std::ostream &, const Animal & );
 
 #endif

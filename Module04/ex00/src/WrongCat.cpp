@@ -1,27 +1,23 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                WrongCat.cpp                                                //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "WrongCat.class.h"
 
-// Standard Libraries
+// ~Structor
 
-# include <iostream>
+WrongCat::WrongCat() : WrongAnimal() { setType("WrongCat"); std::cout << "WrongCat Constructor Called" << std::endl; }
+WrongCat::~WrongCat() { std::cout << "WrongCat Destructor Called" << std::endl; }
 
-// ************************************************************************** //
-//                                    Classes                                 //
-// ************************************************************************** //
+WrongCat::WrongCat( const WrongCat & d ) { *this = d; }
 
-# include "Animal.class.h"
-# include "Cat.class.h"
-# include "Dog.class.h"
-# include "WrongAnimal.class.h"
-# include "WrongCat.class.h"
+WrongCat	&WrongCat::operator = ( const WrongCat & d ) { WrongAnimal::operator = (d); return *this; }
 
-#endif
+// Methode
+
+void	WrongCat::makeSound() const { std::cout << "Miaouuuuuuu" << std::endl; }

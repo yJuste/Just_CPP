@@ -1,27 +1,41 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                WrongCat.class.h                                            //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef WRONGCAT_CLASS_H
+# define WRONGCAT_CLASS_H
 
 // Standard Libraries
 
 # include <iostream>
 
+// Dependences
+
+# include "WrongAnimal.class.h"
+
 // ************************************************************************** //
-//                                    Classes                                 //
+//                                 WrongCat Class                             //
 // ************************************************************************** //
 
-# include "Animal.class.h"
-# include "Cat.class.h"
-# include "Dog.class.h"
-# include "WrongAnimal.class.h"
-# include "WrongCat.class.h"
+class	WrongCat : public WrongAnimal
+{
+	public:
+
+		WrongCat();
+		~WrongCat();
+
+		WrongCat( const WrongCat & );
+
+		WrongCat & operator = ( const WrongCat & );
+
+		// Methode
+
+		void makeSound() const;
+};
 
 #endif

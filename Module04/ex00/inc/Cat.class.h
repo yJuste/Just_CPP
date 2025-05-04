@@ -1,27 +1,41 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Cat.class.h                                                 //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef CAT_CLASS_H
+# define CAT_CLASS_H
 
 // Standard Libraries
 
 # include <iostream>
 
-// ************************************************************************** //
-//                                    Classes                                 //
-// ************************************************************************** //
+// Dependences
 
 # include "Animal.class.h"
-# include "Cat.class.h"
-# include "Dog.class.h"
-# include "WrongAnimal.class.h"
-# include "WrongCat.class.h"
+
+// ************************************************************************** //
+//                                 Cat Class                                  //
+// ************************************************************************** //
+
+class	Cat : public Animal
+{
+	public:
+
+		Cat();
+		~Cat();
+
+		Cat( const Cat & );
+
+		Cat & operator = ( const Cat & );
+
+		// Methode
+
+		void makeSound() const;
+};
 
 #endif

@@ -1,27 +1,23 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Cat.cpp                                                     //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Cat.class.h"
 
-// Standard Libraries
+// ~Structor
 
-# include <iostream>
+Cat::Cat() : Animal() { setType("Cat"); std::cout << "Cat Constructor Called" << std::endl; }
+Cat::~Cat() { std::cout << "Cat Destructor Called" << std::endl; }
 
-// ************************************************************************** //
-//                                    Classes                                 //
-// ************************************************************************** //
+Cat::Cat( const Cat & d ) { *this = d; }
 
-# include "Animal.class.h"
-# include "Cat.class.h"
-# include "Dog.class.h"
-# include "WrongAnimal.class.h"
-# include "WrongCat.class.h"
+Cat	&Cat::operator = ( const Cat & d ) { Animal::operator = (d); return *this; }
 
-#endif
+// Methode
+
+void	Cat::makeSound() const { std::cout << "Miaouuuuuuu" << std::endl; }
