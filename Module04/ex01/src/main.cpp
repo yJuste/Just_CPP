@@ -1,23 +1,31 @@
 // ************************************************************************** //
 //                                                                            //
-//                Cat.cpp                                                     //
+//                main.cpp                                                    //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#include "Cat.class.h"
+# include "main.h"
 
-// ~Structor
+int	main(void)
+{
+	Animal		*a[30];
 
-Cat::Cat() : Animal() { setType("Cat"); std::cout << "Cat Constructor Called" << std::endl; }
-Cat::~Cat() { std::cout << "Cat Destructor Called" << std::endl; }
-
-Cat::Cat( const Cat & c ) { *this = c; }
-
-Cat	&Cat::operator = ( const Cat & d ) { Animal::operator = (d); return *this; }
-
-// Methode
-
-void	Cat::makeSound() const { std::cout << "Miaouuuuuuu" << std::endl; }
+	std::cout << "\033[32m";
+	for (int i = 0; i < 5; i++)
+		a[i] = new Cat();
+	std::cout << "\033[0m";
+	std::cout << std::endl;
+	std::cout << "\033[34m";
+	for (int i = 5; i < 10; i++)
+		a[i] = new Dog();
+	std::cout << "\033[0m";
+	std::cout << "\033[36m";
+	std::cout << std::endl;
+	for (int i = 0; i < 10; i++)
+		delete a[i];
+	std::cout << "\033[0m";
+	return 0;
+}

@@ -1,23 +1,19 @@
 // ************************************************************************** //
 //                                                                            //
-//                WrongCat.cpp                                                //
+//                Brain.cpp                                                   //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#include "WrongCat.class.h"
+#include "Brain.class.h"
 
 // ~Structor
 
-WrongCat::WrongCat() : WrongAnimal() { setType("WrongCat"); std::cout << "WrongCat Constructor Called" << std::endl; }
-WrongCat::~WrongCat() { std::cout << "WrongCat Destructor Called" << std::endl; }
+Brain::Brain() { std::cout << "Brain Constructor Called" << std::endl; }
+Brain::~Brain() { std::cout << "Brain Destructor Called" << std::endl; }
 
-WrongCat::WrongCat( const WrongCat & c ) { *this = c; }
+Brain::Brain( const Brain & b ) { *this = b; }
 
-WrongCat	&WrongCat::operator = ( const WrongCat & d ) { WrongAnimal::operator = (d); return *this; }
-
-// Methode
-
-void	WrongCat::makeSound() const { std::cout << "Miaouuuuuuu" << std::endl; }
+Brain	&Brain::operator = ( const Brain & b ) { (void)b; return *this; }
