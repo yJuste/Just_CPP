@@ -38,9 +38,9 @@ std::ostream	&operator << ( std::ostream & o, const ClapTrap & c ) { return o <<
 void	ClapTrap::attack( const std::string & target )
 {
 	if (_hitPoint == 0)
-		std::cout << "ClaTrap " << "\033[31m" << _name << "\033[0m" << " is dead." << std::endl;
+		std::cout << "ClapTrap " << "\033[31m" << _name << "\033[0m" << " is dead." << std::endl;
 	else if (_energyPoint == 0)
-		std::cout << "ClaTrap " << "\033[33m" << _name << " has no more energy!" << "\033[0m" << std::endl;
+		std::cout << "ClapTrap " << "\033[33m" << _name << " has no more energy!" << "\033[0m" << std::endl;
 	else
 	{
 		_energyPoint -= 1;
@@ -52,7 +52,7 @@ void	ClapTrap::takeDamage( unsigned int amount )
 {
 	if (_hitPoint == 0)
 	{
-		std::cout << "ClaTrap " << "\033[31m" << _name << "\033[0m" << " is dead." << std::endl;
+		std::cout << "ClapTrap " << "\033[31m" << _name << "\033[0m" << " is dead." << std::endl;
 		return ;
 	}
 	_hitPoint -= amount;
@@ -64,9 +64,9 @@ void	ClapTrap::takeDamage( unsigned int amount )
 void	ClapTrap::beRepaired( unsigned int amount )
 {
 	if (_hitPoint == 0)
-		std::cout << "ClaTrap " << "\033[31m" << _name << "\033[0m" << " is dead." << std::endl;
+		std::cout << "ClapTrap " << "\033[31m" << _name << "\033[0m" << " is dead." << std::endl;
 	else if (_energyPoint == 0)
-		std::cout << "ClaTrap " << "\033[33m" << _name << " has no more energy!" << "\033[0m" << std::endl;
+		std::cout << "ClapTrap " << "\033[33m" << _name << " has no more energy!" << "\033[0m" << std::endl;
 	else
 	{
 		_hitPoint += amount;

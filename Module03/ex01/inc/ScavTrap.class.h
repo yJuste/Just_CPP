@@ -41,6 +41,7 @@ class	ScavTrap : public ClapTrap
 
 		// Methode
 
+		void attack( const std::string & );
 		void guardGate() const;
 };
 

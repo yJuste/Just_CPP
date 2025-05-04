@@ -20,6 +20,18 @@
 
 class	FragTrap
 {
+	private:
+
+	public:
+
+		FragTrap();
+		~FragTrap();
+
+		FragTrap( const FragTrap & );
+
+		// Operator Overload
+
+		FragTrap & operator = ( const FragTrap & );
 };
 
 #endif

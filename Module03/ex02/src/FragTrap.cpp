@@ -11,6 +11,13 @@
 
 // ~Structor
 
+FragTrap::FragTrap() {}
+FragTrap::~FragTrap() {}
+
+FragTrap::FragTrap( const FragTrap & f ) { *this = f; }
+
 // Operator Overload
+
+FragTrap	&FragTrap::operator = ( const FragTrap & f ) { (void)f; return *this; }
 
 // Methode

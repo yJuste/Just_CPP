@@ -15,6 +15,7 @@ int	main(void)
 	ScavTrap	mom("mom");
 
 	dad.guardGate();
+	dad.attack("mom");
 	std::cout << dad << std::endl;
 	std::cout << mom << std::endl;
 	return 0;

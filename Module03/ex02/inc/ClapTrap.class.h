@@ -42,7 +42,7 @@ class	ClapTrap
 
 		// Methode
 
-		void attack( const std::string & );
+		virtual void attack( const std::string & );
 		void takeDamage( unsigned int );
 		void beRepaired( unsigned int );
 
