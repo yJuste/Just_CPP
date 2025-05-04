@@ -14,12 +14,34 @@
 
 # include <iostream>
 
+// Dependences
+
+# include "ClapTrap.class.h"
+
 // ************************************************************************** //
 //                                ScavTrap Class                              //
 // ************************************************************************** //
 
-class	ScavTrap
+class	ScavTrap : public ClapTrap
 {
+	private:
+
+		ScavTrap();
+
+	public:
+
+		~ScavTrap();
+
+		ScavTrap( const ScavTrap & );
+		ScavTrap( std::string name );
+
+		// Operator Overload
+
+		ScavTrap & operator = ( const ScavTrap & );
+
+		// Methode
+
+		void guardGate() const;
 };
 
 #endif

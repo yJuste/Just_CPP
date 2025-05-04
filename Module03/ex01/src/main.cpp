@@ -11,5 +11,11 @@
 
 int	main(void)
 {
+	ScavTrap	dad("dad");
+	ScavTrap	mom("mom");
+
+	dad.guardGate();
+	std::cout << dad << std::endl;
+	std::cout << mom << std::endl;
 	return 0;
 }

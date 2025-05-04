@@ -12,10 +12,10 @@
 // ~Structor
 
 ClapTrap::ClapTrap() : _name( "" ), _hitPoint( 0 ), _energyPoint( 0 ), _attackDamage( 0 ) {}
-ClapTrap::~ClapTrap() { std::cout << "Destructor called" << std::endl; }
+ClapTrap::~ClapTrap() { std::cout << "ClapTrap Destructor called" << std::endl; }
 
 ClapTrap::ClapTrap ( const ClapTrap & c ) { *this = c; }
-ClapTrap::ClapTrap( std::string name ) : _name( name ), _hitPoint( 10 ), _energyPoint( 10 ), _attackDamage( 0 ) { std::cout << "Constructor called" << std::endl; }
+ClapTrap::ClapTrap( std::string name ) : _name( name ), _hitPoint( 10 ), _energyPoint( 10 ), _attackDamage( 0 ) { std::cout << "ClapTrap Constructor called" << std::endl; }
 
 // Operator Overload
 
@@ -31,7 +31,7 @@ ClapTrap	&ClapTrap::operator = ( const ClapTrap & c )
 	return *this;
 }
 
-std::ostream	&operator << ( std::ostream & o, const ClapTrap & c ) { return o << "Its name: " << c.getName() << "; hitPoint: " << c.getHitPoint() << "; energyPoint: " << c.getEnergyPoint() << "; attackDamage: " << c.getEnergyPoint(); }
+std::ostream	&operator << ( std::ostream & o, const ClapTrap & c ) { return o << "Its name: " << c.getName() << "; hitPoint: " << c.getHitPoint() << "; energyPoint: " << c.getEnergyPoint() << "; attackDamage: " << c.getAttackDamage(); }
 
 // Methode
 
