@@ -11,5 +11,9 @@
 
 int	main(void)
 {
+	FragTrap	tom("tom");
+
+	tom.highFivesGuys();
+	std::cout << tom << std::endl;
 	return 0;
 }

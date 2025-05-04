@@ -14,24 +14,34 @@
 
 # include <iostream>
 
+// Dependences
+
+# include "ClapTrap.class.h"
+
 // ************************************************************************** //
 //                                FragTrap Class                              //
 // ************************************************************************** //
 
-class	FragTrap
+class	FragTrap : public ClapTrap
 {
 	private:
 
+		FragTrap();
+
 	public:
 
-		FragTrap();
 		~FragTrap();
 
 		FragTrap( const FragTrap & );
+		FragTrap( std::string name );
 
 		// Operator Overload
 
 		FragTrap & operator = ( const FragTrap & );
+
+		// Methode
+
+		void highFivesGuys() const;
 };
 
 #endif
