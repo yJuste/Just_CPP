@@ -15,7 +15,7 @@ ClapTrap::ClapTrap() : _name( "" ), _hitPoint( 0 ), _energyPoint( 0 ), _attackDa
 ClapTrap::~ClapTrap() { std::cout << "ClapTrap Destructor called" << std::endl; }
 
 ClapTrap::ClapTrap ( const ClapTrap & c ) { *this = c; }
-ClapTrap::ClapTrap( std::string name ) : _name( name ), _hitPoint( 10 ), _energyPoint( 10 ), _attackDamage( 0 ) { std::cout << "ClapTrap Constructor called" << std::endl; }
+ClapTrap::ClapTrap( const std::string name ) : _name( name ), _hitPoint( 10 ), _energyPoint( 10 ), _attackDamage( 0 ) { std::cout << "ClapTrap Constructor called" << std::endl; }
 
 // Operator Overload
 

@@ -16,15 +16,18 @@
 
 // Dependences
 
-# include "ClapTrap.class.h"
+# include "ScavTrap.class.h"
+# include "FragTrap.class.h"
 
 // ************************************************************************** //
 //                                DiamondTrap Class                           //
 // ************************************************************************** //
 
-class	DiamondTrap : public ClapTrap
+class	DiamondTrap : public ScavTrap, FragTrap
 {
 	private:
+
+		std::string		_name;
 
 		DiamondTrap();
 
@@ -33,11 +36,20 @@ class	DiamondTrap : public ClapTrap
 		~DiamondTrap();
 
 		DiamondTrap( const DiamondTrap & );
-		DiamondTrap( std::string name );
+		DiamondTrap( const std::string name );
 
 		// Operator Overload
 
 		DiamondTrap & operator = ( const DiamondTrap & );
+
+		// Methode
+
+		void attack( const std::string & );
+		void whoAmI() const;
+
+		// Getter
+
+		std::string getName() const;
 };
 
 #endif

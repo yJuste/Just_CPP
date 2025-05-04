@@ -33,7 +33,7 @@ class	ScavTrap : public ClapTrap
 		~ScavTrap();
 
 		ScavTrap( const ScavTrap & );
-		ScavTrap( std::string name );
+		ScavTrap( const std::string );
 
 		// Operator Overload
 

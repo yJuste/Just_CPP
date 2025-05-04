@@ -22,18 +22,15 @@
 //                                FragTrap Class                              //
 // ************************************************************************** //
 
-class	FragTrap : public ClapTrap
+class	FragTrap : virtual public ClapTrap
 {
-	private:
-
-		FragTrap();
-
 	public:
 
+		FragTrap();
 		~FragTrap();
 
 		FragTrap( const FragTrap & );
-		FragTrap( std::string name );
+		FragTrap( const std::string );
 
 		// Operator Overload
 

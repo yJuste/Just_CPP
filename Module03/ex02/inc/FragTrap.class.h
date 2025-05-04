@@ -33,7 +33,7 @@ class	FragTrap : public ClapTrap
 		~FragTrap();
 
 		FragTrap( const FragTrap & );
-		FragTrap( std::string name );
+		FragTrap( const std::string );
 
 		// Operator Overload
 

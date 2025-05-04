@@ -11,5 +11,12 @@
 
 int	main(void)
 {
+	DiamondTrap		ganon("ganon");
+
+	std::cout << std::endl;
+	std::cout << ganon << std::endl;
+	ganon.attack("marie");
+	ganon.whoAmI();
+	std::cout << std::endl;
 	return 0;
 }

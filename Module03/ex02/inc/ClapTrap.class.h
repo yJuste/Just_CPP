@@ -34,7 +34,7 @@ class	ClapTrap
 		~ClapTrap();
 
 		ClapTrap( const ClapTrap & );
-		ClapTrap( std::string );
+		ClapTrap( const std::string );
 
 		// Operator Overload
 

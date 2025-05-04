@@ -22,18 +22,15 @@
 //                                ScavTrap Class                              //
 // ************************************************************************** //
 
-class	ScavTrap : public ClapTrap
+class	ScavTrap : virtual public ClapTrap
 {
-	private:
-
-		ScavTrap();
-
 	public:
 
+		ScavTrap();
 		~ScavTrap();
 
 		ScavTrap( const ScavTrap & );
-		ScavTrap( std::string name );
+		ScavTrap( const std::string );
 
 		// Operator Overload
 
