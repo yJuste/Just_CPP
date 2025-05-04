@@ -19,6 +19,7 @@
 // ************************************************************************** //
 
 # include "ClapTrap.class.h"
+# include "ScavTrap.class.h"
 # include "FragTrap.class.h"
 
 #endif
