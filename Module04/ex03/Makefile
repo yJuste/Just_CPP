@@ -1,4 +1,4 @@
-NAME = interface
+NAME = materiaInterface
 
 # Flags
 CC = c++
@@ -12,7 +12,9 @@ OBJ_DIR = obj
 
 # Files
 SRC =	main.cpp			\
-	AMateria.cpp
+	AMateria.cpp			\
+	Cure.cpp			\
+	Ice.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

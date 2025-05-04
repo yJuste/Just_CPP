@@ -27,7 +27,7 @@ class	AMateria
 	public:
 
 		AMateria();
-		~AMateria();
+		virtual ~AMateria();
 
 		AMateria( const AMateria & );
 		AMateria( const std::string & );
@@ -43,5 +43,7 @@ class	AMateria
 
 		const std::string & getType() const;
 };
+
+std::ostream	&operator << ( std::ostream &, const AMateria & );
 
 #endif

@@ -1,25 +1,41 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Ice.class.h                                                 //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#ifndef ICE_CLASS_H
+# define ICE_CLASS_H
 
 // Standard Libraries
 
 # include <iostream>
 
-// ************************************************************************** //
-//                                    Classes                                 //
-// ************************************************************************** //
+// Dependences
 
 # include "AMateria.class.h"
-# include "Cure.class.h"
-# include "Ice.class.h"
+
+// ************************************************************************** //
+//                                  Ice Class                                 //
+// ************************************************************************** //
+
+class	Ice : public AMateria
+{
+	public:
+
+		Ice();
+		~Ice();
+
+		Ice( const Ice & );
+
+		Ice & operator = ( const Ice & );
+
+		// Methode
+
+		AMateria * clone() const;
+};
 
 #endif

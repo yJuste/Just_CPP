@@ -1,23 +1,23 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.cpp                                                    //
+//                Ice.cpp                                                     //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-# include "main.h"
+#include "Ice.class.h"
 
-int	main(void)
-{
-	AMateria	* m1 = new Ice();
-	AMateria	* m2 = new Cure();
-	AMateria	* m3 = NULL;
+// ~Structor
 
-	(void)m1; (void)m2; (void)m3;
-	m3 = m2->clone();
-	std::cout << *m3 << std::endl;
-	delete m1; delete m2; delete m3;
-	return 0;
-}
+Ice::Ice() {}
+Ice::~Ice() {}
+
+Ice::Ice( const Ice & c ) { *this = c; }
+
+Ice	&Ice::operator = ( const Ice & c ) { (void)c; return *this; }
+
+// Methode
+
+AMateria	*Ice::clone() const { AMateria *copy = new Ice(); return copy; }
