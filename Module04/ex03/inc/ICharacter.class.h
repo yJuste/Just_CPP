@@ -47,4 +47,6 @@ class	ICharacter
 		virtual const std::string & getName() const = 0;
 };
 
+std::ostream & operator << ( std::ostream &, const ICharacter & );
+
 #endif

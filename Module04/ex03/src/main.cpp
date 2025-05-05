@@ -45,7 +45,7 @@ int	main(void)
 	m4 = cure->clone();
 	m5 = cure->clone();
 	m6 = ice->clone();
-	AMateria * m6copy = m6;
+	AMateria * m4copy = m4;
 
 	tom->equip(m4);
 	tom->equip(m6);
@@ -58,21 +58,23 @@ int	main(void)
 	std::cout << "Tom lace au sol son materia ICE par terre"; tom->unequip(1);
 	std::cout << "Oubliant qu'il s'en etait separe, il utilise quand meme. "; tom->use(1, *bourdon);
 	std::cout << "Rien ne se passe";
-	delete m6copy;
+	delete m4copy;
 
 	std::cout << "\033[0m" << std::endl;
-	/*// ------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------
 	std::cout << "\033[96m" << std::endl;
 
-	//ICharacter	* tomAlterEgo = new Character("tomAlterEgo");
+	ICharacter	* tomAlterEgo = NULL;
 
 	std::cout << "Au loin, ils apercoivent quelqu'un" << std::endl;
 	std::cout << "Mais c'est MOI !!!" << std::endl;
-	//tomAlterEgo = tom;
-	std::cout << std::endl;
+	tomAlterEgo = tom;
+	std::cout << "\033[0m" << std::endl;
+	std::cout << "Regarde Tom, je t'idolatre, je veux etre comme toi:" << std::endl;
+	std::cout << *tomAlterEgo << std::endl;
 
 	std::cout << "\033[0m" << std::endl;
-	*/// ------------------------------------------------------------------------------------
+	// ------------------------------------------------------------------------------------
 
 	delete ice;
 	delete cure;

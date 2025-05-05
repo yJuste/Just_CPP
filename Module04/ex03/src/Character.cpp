@@ -11,30 +11,60 @@
 
 // ~Structor
 
-Character::Character() : _index( 0 ), _name( "" ) { for (int i = 0; i < 4; i++) _item[i] = NULL; }
+Character::Character() : _name( "" ) { for (int i = 0; i < 4; i++) _item[i] = NULL; }
+
 Character::~Character()
-{ for (int i = 0; i < 4; i++) { if (_item[i] != NULL) delete _item[i]; _item[i] = NULL; } }
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_item[i] != NULL)
+			delete _item[i];
+		_item[i] = NULL;
+	}
+}
 
-Character::Character( const Character & c ) { *this = c; }
-Character::Character( const std::string & name ) : _index( 0 ), _name(name) { for (int i = 0; i < 4; i++) _item[i] = NULL; }
+Character::Character( const Character & c ) : _name(c.getName())
+{
+	if (this != &c)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (c._item[i] != NULL)
+				_item[i] = c._item[i]->clone();
+			else
+				_item[i] = NULL;
+		}
+	}
+}
 
+Character::Character( const std::string & name ) : _name(name) { for (int i = 0; i < 4; i++) _item[i] = NULL; }
 
 Character	&Character::operator = ( const Character & c )
 {
-	(void)c;
+	if (this != &c)
+	{
+		Character * cpy = new Character(c.getName());
+		for (int i = 0; i < 4; i++)
+		{
+			if (c._item[i] != NULL)
+				cpy->_item[i] = c._item[i]->clone();
+			else
+				cpy->_item[i] = NULL;
+		}
+		return *cpy;
+	}
 	return *this;
 }
-
-std::ostream	&operator << ( std::ostream & o, const Character & c ) { return o << "My name is: " << c.getName() << std::endl; }
 
 // Methode
 
 void	Character::equip( AMateria * m )
 {
-	if (getIndex() == 4)
-		return ;
-	_item[_index] = m;
-	_index++;
+	for (int i = 0; i < 4; i++)
+	{
+		if (_item[i] == NULL)
+			return (void)(_item[i] = m);
+	}
 }
 
 void	Character::unequip( int idx )
@@ -55,7 +85,18 @@ void	Character::use( int idx, ICharacter & target )
 	_item[idx]->use(target);
 }
 
+void	Character::myInventory() const
+{
+	std::cout << "\033[0m" << "Voici mon inventaire: " << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (_item[i])
+			std::cout << "My " << i << " slot is " << "\033[92m" << _item[i]->getType() << "\033[0m" << std::endl;
+		else
+			std::cout << "My " << i << " slot is " << "\033[92m" << "[EMPTY]" << "\033[0m" << std::endl;
+	}
+}
+
 // Getter
 
 const std::string	&Character::getName() const { return _name; }
-int	Character::getIndex() const { return _index; }

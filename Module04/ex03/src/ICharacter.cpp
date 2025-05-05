@@ -8,8 +8,24 @@
 // ************************************************************************** //
 
 #include "ICharacter.class.h"
+#include "Character.class.h"
 
 // ~Structor
 
 ICharacter::ICharacter() {}
 ICharacter::~ICharacter() {}
+
+// Operator Overload
+
+std::ostream	&operator << ( std::ostream & o, const ICharacter & c )
+{
+	o << "\033[0m";
+	if (const Character * test = dynamic_cast<const Character *>(&c))
+	{
+		o << "Je suis " << c.getName() << std::endl;
+		test->myInventory();
+	}
+	else
+		o << "Not a Character actually..." << std::endl;
+	return o;
+}

@@ -27,8 +27,7 @@ class	Character : public ICharacter
 {
 	private:
 
-		int			_index;
-		const std::string	_name;
+		std::string		_name;
 		AMateria		*_item[4];
 
 		Character();
@@ -48,12 +47,12 @@ class	Character : public ICharacter
 		void unequip( int );
 		void use( int, ICharacter & );
 
+		void myInventory() const;
+
 		// ~etter
 
 		const std::string & getName() const;
 		int getIndex() const;
 };
-
-std::ostream & operator << ( std::ostream &, const Character & );
 
 #endif
