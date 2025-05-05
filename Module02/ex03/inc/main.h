@@ -14,7 +14,6 @@
 
 # include <iostream>
 # include <sstream>
-# include <cmath>
 
 // ************************************************************************** //
 //                                    Classes                                 //

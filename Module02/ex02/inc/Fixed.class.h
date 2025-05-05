@@ -13,6 +13,7 @@
 // Standard Libraries
 
 # include <iostream>
+# include <cmath>
 
 // ************************************************************************** //
 //                                Fixed Class                                 //
