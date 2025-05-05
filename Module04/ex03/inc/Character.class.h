@@ -1,14 +1,14 @@
 // ************************************************************************** //
 //                                                                            //
-//                ICharacter.class.h                                          //
+//                Character.class.h                                           //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef ICHARACTER_CLASS_H
-# define ICHARACTER_CLASS_H
+#ifndef CHARACTER_CLASS_H
+# define CHARACTER_CLASS_H
 
 // Standard Libraries
 
@@ -17,33 +17,39 @@
 // Dependences
 
 # include "AMateria.class.h"
+# include "ICharacter.class.h"
 
 // ************************************************************************** //
-//                         Interface Character Class                          //
+//                                Character Class                             //
 // ************************************************************************** //
 
-class	ICharacter
+class	Character : public ICharacter
 {
 	private:
 
-		ICharacter( const ICharacter & );
+		const std::string	_name;
+		AMateria		*_item[4];
 
-		ICharacter & operator = ( const ICharacter & );
+		Character();
 
 	public:
 
-		ICharacter();
-		virtual ~ICharacter();
+		virtual ~Character();
+
+		Character( const Character & );
+		Character( const std::string & );
+
+		Character & operator = ( const Character & );
 
 		// Methode
 
-		virtual void equip( AMateria * ) = 0;
-		virtual void unequip( int ) = 0;
-		virtual void use( int, ICharacter & ) = 0;
+		void equip( AMateria * );
+		void unequip( int );
+		void use( int, ICharacter & );
 
 		// ~etter
 
-		virtual const std::string & getName() const = 0;
+		const std::string & getName() const;
 };
 
 #endif

@@ -11,10 +11,5 @@
 
 // ~Structor
 
-ICharacter::ICharacter() : _name( "" ) { (void)_item; }
+ICharacter::ICharacter() {}
 ICharacter::~ICharacter() {}
-
-ICharacter::ICharacter( const ICharacter & c ) { *this = c; }
-ICharacter::ICharacter( const std::string & name ) : _name(name) {}
-
-ICharacter	&ICharacter::operator = ( const ICharacter & c ) { (void)c; return *this; }

@@ -1,4 +1,4 @@
-NAME = materiaInterface
+NAME = mate-moi
 
 # Flags
 CC = c++
@@ -12,6 +12,7 @@ OBJ_DIR = obj
 
 # Files
 SRC =	main.cpp			\
+	Character.cpp			\
 	ICharacter.cpp			\
 	AMateria.cpp			\
 	Cure.cpp			\
