@@ -19,7 +19,7 @@ AMateria::AMateria( const std::string & type ) : _type(type) {}
 
 AMateria	&AMateria::operator = ( const AMateria & m ) { (void)m; return *this; }
 
-std::ostream	&operator << ( std::ostream & o, const AMateria & m ) { (void)m; return o << "exists" << ";my type: " << m.getType(); }
+std::ostream	&operator << ( std::ostream & o, const AMateria & m ) { return o << "exists" << ";my type: " << m.getType(); }
 
 // Methode
 

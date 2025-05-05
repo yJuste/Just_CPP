@@ -11,24 +11,72 @@
 
 int	main(void)
 {
-	AMateria	* m1 = new Ice();
-	AMateria	* m2 = new Cure();
-	AMateria	* m3 = NULL;
-	ICharacter	* eren = new Character("Eren");
+	AMateria	* ice = new Ice();
+	AMateria	* cure = new Cure();
 
+	ICharacter	* tom = new Character("Tom");
+	ICharacter	* bourdon = new Character("Bourdon");
+
+	// ------------------------------------------------------------------------------------
 	std::cout << "\033[94m" << std::endl;
 
-	m3 = m2->clone();
-	std::cout << "I was cloned : " << *m3 << std::endl;
+	AMateria	* m3 = NULL;
+
+	m3 = cure->clone();
+
+	std::cout << "Tom & Bourdon se baladent tranquillement dans le pre." << std::endl;
+	tom->equip(m3);
+	std::cout << "Tom dit: \"je peux dupliquer un materia WOW\" " << *m3 << std::endl;
 
 	std::cout << "\033[0m" << std::endl;
+	// ------------------------------------------------------------------------------------
 	std::cout << "\033[95m" << std::endl;
 
-	std::cout << "I ice Eren: "; m1->use(*eren);
-	std::cout << "NOOO, Eren, I will heal you: "; m2->use(*eren);
-	
-	std::cout << "\033[0m" << std::endl;
+	std::cout << "De maniere fortuite, Bourdon attaque Tom en le givrant: "; ice->use(*tom);
+	std::cout << "NOOO dit Bourdon, Tom, Je vais te soigner: "; cure->use(*tom);
 
-	delete m1; delete m2; delete m3; delete eren;
+	std::cout << "\033[0m" << std::endl;
+	std::cout << "\033[96m" << std::endl;
+
+	AMateria	* m4 = NULL;
+	AMateria	* m5 = NULL;
+	AMateria	* m6 = NULL;
+
+	m4 = cure->clone();
+	m5 = cure->clone();
+	m6 = ice->clone();
+	AMateria * m6copy = m6;
+
+	tom->equip(m4);
+	tom->equip(m6);
+	bourdon->equip(m5);
+
+	std::cout << "Le bourdon utilise: "; bourdon->use(0, *tom);
+	std::cout << "Tom le vaillant utilise: "; tom->use(0, *bourdon);
+	std::cout << "Tom le vaillant utilise aussi son 2eme slot: "; tom->use(1, *bourdon);
+
+	std::cout << "Tom lace au sol son materia ICE par terre"; tom->unequip(1);
+	std::cout << "Oubliant qu'il s'en etait separe, il utilise quand meme. "; tom->use(1, *bourdon);
+	std::cout << "Rien ne se passe";
+	delete m6copy;
+
+	std::cout << "\033[0m" << std::endl;
+	/*// ------------------------------------------------------------------------------------
+	std::cout << "\033[96m" << std::endl;
+
+	//ICharacter	* tomAlterEgo = new Character("tomAlterEgo");
+
+	std::cout << "Au loin, ils apercoivent quelqu'un" << std::endl;
+	std::cout << "Mais c'est MOI !!!" << std::endl;
+	//tomAlterEgo = tom;
+	std::cout << std::endl;
+
+	std::cout << "\033[0m" << std::endl;
+	*/// ------------------------------------------------------------------------------------
+
+	delete ice;
+	delete cure;
+	delete tom;
+	delete bourdon;
 	return 0;
 }
