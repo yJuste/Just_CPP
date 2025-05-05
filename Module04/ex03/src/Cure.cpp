@@ -11,7 +11,7 @@
 
 // ~Structor
 
-Cure::Cure() {}
+Cure::Cure() : AMateria( "cure" ) {}
 Cure::~Cure() {}
 
 Cure::Cure( const Cure & c ) { *this = c; }
