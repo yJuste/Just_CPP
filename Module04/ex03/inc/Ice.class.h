@@ -36,6 +36,7 @@ class	Ice : public AMateria
 		// Methode
 
 		AMateria * clone() const;
+		void use( ICharacter & );
 };
 
 #endif

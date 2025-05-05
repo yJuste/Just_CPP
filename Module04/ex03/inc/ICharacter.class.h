@@ -17,6 +17,7 @@
 // Dependences
 
 # include "AMateria.class.h"
+class AMateria;
 
 // ************************************************************************** //
 //                         Interface Character Class                          //

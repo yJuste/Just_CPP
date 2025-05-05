@@ -21,3 +21,5 @@ Cure	&Cure::operator = ( const Cure & c ) { (void)c; return *this; }
 // Methode
 
 AMateria	*Cure::clone() const { AMateria *copy = new Cure(); return copy; }
+
+void	Cure::use( ICharacter & target ) { std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl; }

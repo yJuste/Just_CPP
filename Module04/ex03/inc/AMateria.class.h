@@ -14,6 +14,11 @@
 
 # include <iostream>
 
+// Dependences
+
+# include "ICharacter.class.h"
+class ICharacter;
+
 // ************************************************************************** //
 //                            Abstract Materia Class                          //
 // ************************************************************************** //
@@ -37,7 +42,7 @@ class	AMateria
 		// Methode
 
 		virtual AMateria * clone() const = 0;
-		//virtual void use( ICharacter & );
+		virtual void use( ICharacter & );
 
 		// ~Etter
 

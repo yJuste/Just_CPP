@@ -21,6 +21,10 @@ AMateria	&AMateria::operator = ( const AMateria & m ) { (void)m; return *this; }
 
 std::ostream	&operator << ( std::ostream & o, const AMateria & m ) { (void)m; return o << "exists" << ";my type: " << m.getType(); }
 
+// Methode
+
+void	AMateria::use( ICharacter & target ) { (void)target; }
+
 // ~Etter
 
 const std::string	&AMateria::getType() const { return _type; }

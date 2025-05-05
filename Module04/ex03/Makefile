@@ -12,8 +12,8 @@ OBJ_DIR = obj
 
 # Files
 SRC =	main.cpp			\
-	Character.cpp			\
 	ICharacter.cpp			\
+	Character.cpp			\
 	AMateria.cpp			\
 	Cure.cpp			\
 	Ice.cpp

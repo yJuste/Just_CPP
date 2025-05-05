@@ -36,6 +36,7 @@ class	Cure : public AMateria
 		// Methode
 
 		AMateria * clone() const;
+		void use( ICharacter & );
 };
 
 #endif
