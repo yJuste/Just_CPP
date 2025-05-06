@@ -43,15 +43,14 @@ Character	&Character::operator = ( const Character & c )
 {
 	if (this != &c)
 	{
-		Character * cpy = new Character(c.getName());
+		_name = c.getName();
 		for (int i = 0; i < 4; i++)
 		{
 			if (c._item[i] != NULL)
-				cpy->_item[i] = c._item[i]->clone();
+				_item[i] = c._item[i]->clone();
 			else
-				cpy->_item[i] = NULL;
+				_item[i] = NULL;
 		}
-		return *cpy;
 	}
 	return *this;
 }

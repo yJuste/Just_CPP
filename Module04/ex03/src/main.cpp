@@ -17,7 +17,7 @@ int	main(void)
 	ICharacter	* tom = new Character("Tom");
 	ICharacter	* bourdon = new Character("Bourdon");
 
-	// ------------------------------------------------------------------------------------
+	// --------------CLONE/INIT------------------------------------------------------------
 	std::cout << "\033[94m" << std::endl;
 
 	AMateria	* m3 = NULL;
@@ -29,7 +29,7 @@ int	main(void)
 	std::cout << "Tom dit: \"je peux dupliquer un materia WOW\" " << *m3 << std::endl;
 
 	std::cout << "\033[0m" << std::endl;
-	// ------------------------------------------------------------------------------------
+	// -------------EQUIP------------------------------------------------------------------
 	std::cout << "\033[95m" << std::endl;
 
 	std::cout << "De maniere fortuite, Bourdon attaque Tom en le givrant: "; ice->use(*tom);
@@ -61,10 +61,11 @@ int	main(void)
 	delete m4copy;
 
 	std::cout << "\033[0m" << std::endl;
-	// ------------------------------------------------------------------------------------
+	// -----------LES COPIES---------------------------------------------------------------
 	std::cout << "\033[96m" << std::endl;
 
 	ICharacter	* tomAlterEgo = NULL;
+	ICharacter	* bourdonAlterEgo(bourdon);
 
 	std::cout << "Au loin, ils apercoivent quelqu'un" << std::endl;
 	std::cout << "Mais c'est MOI !!!" << std::endl;
@@ -72,6 +73,8 @@ int	main(void)
 	std::cout << "\033[0m" << std::endl;
 	std::cout << "Regarde Tom, je t'idolatre, je veux etre comme toi:" << std::endl;
 	std::cout << *tomAlterEgo << std::endl;
+	std::cout << "Regarde Bourdon, MOI AUSSIIIIII: " << std::endl;
+	std::cout << *bourdonAlterEgo << std::endl;
 
 	std::cout << "\033[0m" << std::endl;
 	// ------------------------------------------------------------------------------------

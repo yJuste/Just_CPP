@@ -2,7 +2,7 @@ NAME = mate-moi
 
 # Flags
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 # -g
 FLAGS =
 
 # Directories
@@ -13,8 +13,10 @@ OBJ_DIR = obj
 # Files
 SRC =	main.cpp			\
 	ICharacter.cpp			\
-	Character.cpp			\
+	IMateriaSource.cpp		\
 	AMateria.cpp			\
+	Character.cpp			\
+	MateriaSource.cpp		\
 	Cure.cpp			\
 	Ice.cpp
 
