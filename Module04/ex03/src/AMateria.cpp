@@ -17,7 +17,9 @@ AMateria::~AMateria() {}
 AMateria::AMateria( const AMateria & m ) { *this = m; }
 AMateria::AMateria( const std::string & type ) : _type(type) {}
 
-AMateria	&AMateria::operator = ( const AMateria & m ) { (void)m; return *this; }
+// Operator Overload
+
+AMateria	&AMateria::operator = ( const AMateria & m ) { if (this != &m) _type = m.getType(); return *this; }
 
 std::ostream	&operator << ( std::ostream & o, const AMateria & m ) { return o << "exists" << ";my type: " << m.getType(); }
 
@@ -25,6 +27,6 @@ std::ostream	&operator << ( std::ostream & o, const AMateria & m ) { return o <<
 
 void	AMateria::use( ICharacter & target ) { (void)target; }
 
-// ~Etter
+// ~etter
 
 const std::string	&AMateria::getType() const { return _type; }

@@ -16,6 +16,8 @@ IMateriaSource::~IMateriaSource() {}
 
 IMateriaSource::IMateriaSource( const IMateriaSource & m ) { *this = m; }
 
+// Operator Overload
+
 IMateriaSource	&IMateriaSource::operator = ( const IMateriaSource & m ) { (void)m; return *this; }
 
 std::ostream	&operator << ( std::ostream & o, const IMateriaSource & m ) { (void)m; return o << "IMateria Source"; }

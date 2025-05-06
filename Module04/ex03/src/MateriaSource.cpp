@@ -11,11 +11,40 @@
 
 // ~Structor
 
-MateriaSource::MateriaSource() {}
-MateriaSource::~MateriaSource() {}
+MateriaSource::MateriaSource() { for (int i = 0; i < 4; i++) _stock[i] = NULL; }
+
+MateriaSource::~MateriaSource()
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_stock[i] != NULL)
+			delete _stock[i];
+		_stock[i] = NULL;
+	}
+}
 
 MateriaSource::MateriaSource( const MateriaSource & m ) { *this = m; }
 
+// Operator Overload
+
 MateriaSource	&MateriaSource::operator = ( const MateriaSource & m ) { (void)m; return *this; }
 
-std::ostream	&operator << ( std::ostream & o, const MateriaSource & m ) { (void)m; return o << "I am in MateriaSource"; }
+// Methode
+
+void	MateriaSource::learnMateria( AMateria * m )
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (_stock[i] == NULL)
+			return (void)(_stock[i] = m);
+	}
+}
+
+AMateria	*MateriaSource::createMateria( const std::string & type )
+{
+	if (type == "ice")
+		return new Ice();
+	if (type == "cure")
+		return new Cure();
+	return NULL;
+}

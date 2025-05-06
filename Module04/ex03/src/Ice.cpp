@@ -16,6 +16,8 @@ Ice::~Ice() {}
 
 Ice::Ice( const Ice & c ) { *this = c; }
 
+// Operator Overload
+
 Ice	&Ice::operator = ( const Ice & c ) { (void)c; return *this; }
 
 // Methode

@@ -77,11 +77,62 @@ int	main(void)
 	std::cout << *bourdonAlterEgo << std::endl;
 
 	std::cout << "\033[0m" << std::endl;
+	// -------------MATERIA SOURCE---------------------------------------------------------
+	std::cout << "\033[98m" << std::endl;
+
+	std::cout << "Tom, dit Bourdon, regarde j'ai un stock de Materia * il sort une bourse *" << std::endl;
+	std::cout << "Tu veux quoi comme Materia ?" << std::endl;
+	std::cout << "Tom lui dit : TOOOOOOOOUUUUUT" << std::endl;
+	std::cout << "Bourdon lui sortit tout ce qu'il y a dans la bourse: " << std::endl;
+
+	IMateriaSource * stockOfMateria = new MateriaSource();
+	stockOfMateria->learnMateria(new Ice());
+	stockOfMateria->learnMateria(new Cure());
+
+	bourdon->equip(stockOfMateria->createMateria("ice"));
+	bourdon->equip(stockOfMateria->createMateria("cure"));
+
+	std::cout << "Regarde Tom :" << std::endl << std::endl;
+	std::cout << *bourdon << std::endl;
+
+	bourdon->use(1, *tom);
+	bourdon->use(2, *tom);
+
+	std::cout << "Roooh, c'etait pour tester, JOOOOOOKE!" << std::endl;
+
+	std::cout << "\033[0m" << std::endl;
 	// ------------------------------------------------------------------------------------
 
+	delete stockOfMateria;
 	delete ice;
 	delete cure;
 	delete tom;
 	delete bourdon;
 	return 0;
 }
+
+//		MATERIA SOURCE
+/*int	main(void)
+{
+	IMateriaSource * src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter* me = new Character("me");
+
+	AMateria * tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter * bob = new Character("bob");
+
+	me->use(0, *bob);
+	me->use(1, *bob);
+
+	delete bob;
+	delete me;
+	delete src;
+
+	return 0;
+}*/

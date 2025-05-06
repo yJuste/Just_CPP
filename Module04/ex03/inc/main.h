@@ -19,8 +19,10 @@
 // ************************************************************************** //
 
 # include "ICharacter.class.h"
-# include "Character.class.h"
+# include "IMateriaSource.class.h"
 # include "AMateria.class.h"
+# include "Character.class.h"
+# include "MateriaSource.class.h"
 # include "Cure.class.h"
 # include "Ice.class.h"
 

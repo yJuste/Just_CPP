@@ -16,6 +16,8 @@ Cure::~Cure() {}
 
 Cure::Cure( const Cure & c ) { *this = c; }
 
+// Operator Overload
+
 Cure	&Cure::operator = ( const Cure & c ) { (void)c; return *this; }
 
 // Methode

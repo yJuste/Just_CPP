@@ -14,20 +14,30 @@
 
 # include <iostream>
 
+// Dependences
+
+# include "AMateria.class.h"
+
 // ************************************************************************** //
 //                        Interface MateriaSource Class                       //
 // ************************************************************************** //
 
 class	IMateriaSource
 {
-	public:
-
-		IMateriaSource();
-		~IMateriaSource();
+	private:
 
 		IMateriaSource( const IMateriaSource & );
 
 		IMateriaSource & operator = ( const IMateriaSource & );
+
+	public:
+
+		IMateriaSource();
+		virtual ~IMateriaSource();
+
+		virtual void learnMateria( AMateria * ) = 0;
+		virtual AMateria * createMateria( const std::string & ) = 0;
+
 };
 
 std::ostream	&operator << ( std::ostream &, const IMateriaSource & );

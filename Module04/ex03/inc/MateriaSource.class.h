@@ -14,12 +14,22 @@
 
 # include <iostream>
 
+// Dependences
+
+# include "IMateriaSource.class.h"
+# include "Ice.class.h"
+# include "Cure.class.h"
+
 // ************************************************************************** //
 //                             MateriaSource Class                            //
 // ************************************************************************** //
 
-class	MateriaSource
+class	MateriaSource : public IMateriaSource
 {
+	private:
+
+		AMateria		*_stock[4];
+
 	public:
 
 		MateriaSource();
@@ -28,8 +38,11 @@ class	MateriaSource
 		MateriaSource( const MateriaSource & );
 
 		MateriaSource & operator = ( const MateriaSource & );
-};
 
-std::ostream	&operator << ( std::ostream &, const MateriaSource & );
+		// Methode
+
+		void learnMateria( AMateria * );
+		AMateria * createMateria( const std::string & );
+};
 
 #endif
