@@ -26,13 +26,26 @@ Bureaucrat::Bureaucrat( const std::string & name, int grade ) : _name( name ), _
 
 Bureaucrat	&Bureaucrat::operator = ( const Bureaucrat & b ) { (void)b; return *this; }
 
-std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { return o << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl; }
+std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { return o << "\033[33m" << b.getName() << "\033[0m" << ", bureaucrat grade " << "\033[33m" << b.getGrade() << "\033[0m" << std::endl; }
 
 // Methode
 
 void	Bureaucrat::upgrade() { if (--_grade <= 0) return (_grade++, throw GradeTooHighException()); }
 
 void	Bureaucrat::downgrade() { if (++_grade > 150) return (_grade--, throw GradeTooLowException()); }
+
+void	Bureaucrat::signForm( Form & f ) const
+{
+	try
+	{
+		if (f.beSigned(*this))
+			std::cout << "\033[34m" << getName() << " signed " << f.getName() << "\033[0m" << std::endl;
+	}
+	catch ( std::exception & e )
+	{
+		std::cout << "\033[34m" << getName() << " cannot sign the form because the Taylor Swift's concert is soon." << "\033[0m" << std::endl;
+	}
+}
 
 // ~etter
 

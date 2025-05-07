@@ -12,7 +12,8 @@ OBJ_DIR = obj
 
 # Files
 SRC =	main.cpp			\
-	Bureaucrat.cpp
+	Bureaucrat.cpp			\
+	Form.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 

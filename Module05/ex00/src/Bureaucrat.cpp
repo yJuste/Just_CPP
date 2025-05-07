@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat( const std::string & name, int grade ) : _name( name ), _
 
 Bureaucrat	&Bureaucrat::operator = ( const Bureaucrat & b ) { (void)b; return *this; }
 
-std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { return o << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl; }
+std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { return o << "\033[33m" << b.getName() << "\033[0m" << ", bureaucrat grade " << "\033[33m" << b.getGrade() << "\033[0m" << std::endl; }
 
 // Methode
 

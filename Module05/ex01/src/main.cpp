@@ -11,34 +11,28 @@
 
 int	main(void)
 {
-	std::cout << std::endl;
+	try
+	{
+		std::cout << std::endl;
+		Bureaucrat joel("Joel", 1);
+		std::cout << "A dude: " << joel << std::endl;
+		Form		f1;
 
-	std::cout << "\033[32m" << "----------- Grade Too Low: -------------" << "\033[0m" << std::endl;
-	try { Bureaucrat louis("Louis", 200); }
-	catch (std::exception & e) { std::cerr << e.what() << std::endl; }
+		std::cout << f1 << std::endl;
+		f1.beSigned(joel);
+		std::cout << f1 << std::endl;
 
-	std::cout << std::endl;
+		std::cout << "------------------------------------------" << std::endl;
+		std::cout << std::endl;
 
-	std::cout << "\033[32m" << "----------- Grade Too High: -------------" << "\033[0m" << std::endl;
-	try { Bureaucrat gabriel("Gabriel", -2000000); }
-	catch (std::exception & e) { std::cerr << e.what() << std::endl; }
+		Bureaucrat ellie("Ellie", 150);
+		std::cout << "Another dude: " << ellie << std::endl;
+		Form		f2;
 
-	std::cout << std::endl;
-
-	std::cout << "\033[32m" << "---------- Increment Too High: ----------" << "\033[0m" << std::endl;
-	Bureaucrat	gabriel("Gabriel", 1);
-
-	try { gabriel.upgrade(); }
-	catch (std::exception & e) { std::cerr << e.what() << std::endl << gabriel; }
-
-	std::cout << std::endl;
-
-	std::cout << "\033[32m" << "---------- Decrement Too Low: ----------" << "\033[0m" << std::endl;
-	Bureaucrat	joachim("Joachim", 150);
-
-	try { joachim.downgrade(); }
-	catch (std::exception & e) { std::cerr << e.what() << std::endl << joachim; }
-
-	std::cout << std::endl;
+		std::cout << f2 << std::endl;
+		ellie.signForm(f2);
+		std::cout << f2 << std::endl;
+	}
+	catch ( std::exception & e ) { std::cerr << e.what() << std::endl; }
 	return 0;
 }

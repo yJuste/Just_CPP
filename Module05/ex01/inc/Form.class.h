@@ -1,14 +1,14 @@
 // ************************************************************************** //
 //                                                                            //
-//                Bureaucrat.class.h                                          //
+//                Form.class.h                                                //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef BUREAUCRAT_CLASS_H
-# define BUREAUCRAT_CLASS_H
+#ifndef FORM_CLASS_H
+# define FORM_CLASS_H
 
 // Standard Libraries
 
@@ -16,41 +16,41 @@
 
 // Dependences
 
-# include "Form.class.h"
-class Form;
+# include "Bureaucrat.class.h"
+class Bureaucrat;
 
 // ************************************************************************** //
-//                              Bureaucrat Class                              //
+//                                 Form Class                                 //
 // ************************************************************************** //
 
-class	Bureaucrat
+class	Form
 {
 	private:
 
 		const std::string		_name;
-		int				_grade;
+		bool				_approved;
+		const int			_toSign;
+		const int			_toExec;
 
-		Bureaucrat();
-
-		Bureaucrat & operator = ( const Bureaucrat & );
+		Form & operator = ( const Form & );
 
 	public:
 
-		~Bureaucrat();
+		Form();
+		~Form();
 
-		Bureaucrat( const Bureaucrat & );
-		Bureaucrat( const std::string &, int );
-
-		// Methode
-
-		void upgrade();
-		void downgrade();
-		void signForm( Form & ) const;
+		Form( const Form & );
 
 		// ~etter
 
-		const std::string & getName() const;
-		int getGrade() const;
+		const std::string getName() const;
+		bool getApproved() const;
+		int getToSign() const;
+		int getToExec() const;
+
+		// Methode
+
+		bool beSigned( const Bureaucrat & );
 
 		// Exception
 
@@ -58,16 +58,16 @@ class	Bureaucrat
 		class GradeTooLowException;
 };
 
-std::ostream & operator << ( std::ostream &, const Bureaucrat & );
+std::ostream & operator << ( std::ostream &, const Form & );
 
 // Exception
 
-class	Bureaucrat::GradeTooHighException : public std::exception
+class	Form::GradeTooHighException : public std::exception
 {
 	public: const char * what() const throw() { return "\033[31merror\033[0m: Grade Too High: It can only be within [ 1-150 ]"; }
 };
 
-class	Bureaucrat::GradeTooLowException : public std::exception
+class	Form::GradeTooLowException : public std::exception
 {
 	public: const char * what() const throw() { return "\033[31merror\033[0m: Grade Too Low: It can only be within [ 1-150 ]"; }
 };
