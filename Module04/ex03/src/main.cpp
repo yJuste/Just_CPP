@@ -9,8 +9,6 @@
 
 # include "main.h"
 
-
-/*
 int	main(void)
 {
 	AMateria	* ice = new Ice();
@@ -112,7 +110,6 @@ int	main(void)
 	delete bourdon;
 	return 0;
 }
-*/
 
 //		MATERIA SOURCE
 /*int	main(void)

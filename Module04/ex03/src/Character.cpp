@@ -12,31 +12,9 @@
 // ~Structor
 
 Character::Character() : _name( "" ) { for (int i = 0; i < 4; i++) _item[i] = NULL; }
+Character::~Character() { for (int i = 0; i < 4; i++) if (_item[i] != NULL) delete _item[i]; }
 
-Character::~Character()
-{
-	for (int i = 0; i < 4; i++)
-	{
-		if (_item[i] != NULL)
-			delete _item[i];
-		_item[i] = NULL;
-	}
-}
-
-Character::Character( const Character & c ) : _name(c.getName())
-{
-	if (this != &c)
-	{
-		for (int i = 0; i < 4; i++)
-		{
-			if (c._item[i] != NULL)
-				_item[i] = c._item[i]->clone();
-			else
-				_item[i] = NULL;
-		}
-	}
-}
-
+Character::Character( const Character & c ) { *this = c; }
 Character::Character( const std::string & name ) : _name(name) { for (int i = 0; i < 4; i++) _item[i] = NULL; }
 
 // Operator Overload
