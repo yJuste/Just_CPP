@@ -23,18 +23,18 @@ class	Bureaucrat
 	private:
 
 		const std::string		_name;
-		unsigned int			_grade;
+		int				_grade;
 
 		Bureaucrat();
+
+		Bureaucrat & operator = ( const Bureaucrat & );
 
 	public:
 
 		~Bureaucrat();
 
 		Bureaucrat( const Bureaucrat & );
-		Bureaucrat( const std::string, int );
-
-		Bureaucrat & operator = ( const Bureaucrat & );
+		Bureaucrat( const std::string &, int );
 
 		// Methode
 
@@ -44,9 +44,26 @@ class	Bureaucrat
 		// ~etter
 
 		const std::string & getName() const;
-		unsigned int getGrade() const;
+		int getGrade() const;
+
+		// Exception
+
+		class GradeTooHighException;
+		class GradeTooLowException;
 };
 
 std::ostream & operator << ( std::ostream &, const Bureaucrat & );
+
+// Exception
+
+class	Bureaucrat::GradeTooHighException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Grade Too High: It can only be within [ 1-150 ]"; }
+};
+
+class	Bureaucrat::GradeTooLowException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Grade Too Low: It can only be within [ 1-150 ]"; }
+};
 
 #endif

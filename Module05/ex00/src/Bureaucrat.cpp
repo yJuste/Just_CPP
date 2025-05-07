@@ -1,6 +1,6 @@
 // ************************************************************************** //
 //                                                                            //
-//                Bureaucrat.cpp                                                  //
+//                Bureaucrat.cpp                                              //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
@@ -11,24 +11,32 @@
 
 // ~Structor
 
-Bureaucrat::Bureaucrat() : _name( "No name" ), _grade(0) {}
+Bureaucrat::Bureaucrat() : _name( "[No name]" ), _grade( 150 ) {}
 Bureaucrat::~Bureaucrat() {}
 
-Bureaucrat::Bureaucrat( const Bureaucrat & a ) { *this = a; }
-Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name( name ), _grade( grade ) {}
+Bureaucrat::Bureaucrat( const Bureaucrat & b ) : _name ( b.getName() ), _grade( b.getGrade() ) {}
+
+Bureaucrat::Bureaucrat( const std::string & name, int grade ) : _name( name ), _grade( grade )
+{
+	if (grade <= 0)
+		throw GradeTooHighException();
+	else if (grade > 150)
+		throw GradeTooLowException();
+}
 
 // Operator Overload
 
 Bureaucrat	&Bureaucrat::operator = ( const Bureaucrat & b ) { (void)b; return *this; }
 
-std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { (void)b; return o << "Name of the Bureaucrat: " << std::endl; }
+std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { return o << b.getName() << ", bureaucrat grade " << b.getGrade() << std::endl; }
 
 // Methode
 
-void	Bureaucrat::upgrade() {}
-void	Bureaucrat::downgrade() {}
+void	Bureaucrat::upgrade() { if (--_grade <= 0) return (_grade++, throw GradeTooHighException()); }
+
+void	Bureaucrat::downgrade() { if (++_grade > 150) return (_grade--, throw GradeTooLowException()); }
 
 // ~etter
 
 const std::string	&Bureaucrat::getName() const { return _name; }
-unsigned int	Bureaucrat::getGrade() const { return _grade; }
+int	Bureaucrat::getGrade() const { return _grade; }
