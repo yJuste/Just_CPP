@@ -11,13 +11,24 @@
 
 // ~Structor
 
-Bureaucrat::Bureaucrat() { std::cout << "Bureaucrat Constructor Called" << std::endl; }
-Bureaucrat::~Bureaucrat() { std::cout << "Bureaucrat Destructor Called" << std::endl; }
+Bureaucrat::Bureaucrat() : _name( "No name" ), _grade(0) {}
+Bureaucrat::~Bureaucrat() {}
 
 Bureaucrat::Bureaucrat( const Bureaucrat & a ) { *this = a; }
+Bureaucrat::Bureaucrat( const std::string name, int grade ) : _name( name ), _grade( grade ) {}
 
 // Operator Overload
 
 Bureaucrat	&Bureaucrat::operator = ( const Bureaucrat & b ) { (void)b; return *this; }
 
 std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { (void)b; return o << "Name of the Bureaucrat: " << std::endl; }
+
+// Methode
+
+void	Bureaucrat::upgrade() {}
+void	Bureaucrat::downgrade() {}
+
+// ~etter
+
+const std::string	&Bureaucrat::getName() const { return _name; }
+unsigned int	Bureaucrat::getGrade() const { return _grade; }

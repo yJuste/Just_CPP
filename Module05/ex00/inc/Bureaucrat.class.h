@@ -20,14 +20,31 @@
 
 class	Bureaucrat
 {
-	public:
+	private:
+
+		const std::string		_name;
+		unsigned int			_grade;
 
 		Bureaucrat();
+
+	public:
+
 		~Bureaucrat();
 
 		Bureaucrat( const Bureaucrat & );
+		Bureaucrat( const std::string, int );
 
 		Bureaucrat & operator = ( const Bureaucrat & );
+
+		// Methode
+
+		void upgrade();
+		void downgrade();
+
+		// ~etter
+
+		const std::string & getName() const;
+		unsigned int getGrade() const;
 };
 
 std::ostream & operator << ( std::ostream &, const Bureaucrat & );
