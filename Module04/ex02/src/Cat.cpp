@@ -16,7 +16,7 @@ Cat::~Cat() { delete _brain; std::cout << "Cat Destructor Called" << std::endl; 
 
 Cat::Cat( const Cat & c ) { *this = c; }
 
-Cat	&Cat::operator = ( const Cat & d ) { AAnimal::operator = (d); return *this; }
+Cat	&Cat::operator = ( const Cat & c ) { if (this != &c) { _type = c.getType(); _brain = new Brain(); } return *this; }
 
 // Methode
 

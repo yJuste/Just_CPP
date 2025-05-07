@@ -9,6 +9,8 @@
 
 # include "main.h"
 
+
+/*
 int	main(void)
 {
 	AMateria	* ice = new Ice();
@@ -110,6 +112,7 @@ int	main(void)
 	delete bourdon;
 	return 0;
 }
+*/
 
 //		MATERIA SOURCE
 /*int	main(void)
@@ -118,12 +121,14 @@ int	main(void)
 	src->learnMateria(new Ice());
 	src->learnMateria(new Cure());
 
+	IMateriaSource * cpy = src;
+
 	ICharacter* me = new Character("me");
 
 	AMateria * tmp;
-	tmp = src->createMateria("ice");
+	tmp = cpy->createMateria("ice");
 	me->equip(tmp);
-	tmp = src->createMateria("cure");
+	tmp = cpy->createMateria("cure");
 	me->equip(tmp);
 	ICharacter * bob = new Character("bob");
 

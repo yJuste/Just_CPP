@@ -9,6 +9,7 @@
 
 # include "main.h"
 
+
 int	main(void)
 {
 	Animal		*a[30];
@@ -29,3 +30,12 @@ int	main(void)
 	std::cout << "\033[0m";
 	return 0;
 }
+
+/*
+int	main(void)
+{
+	Dog	test;
+
+	Dog	hey(test);
+	return 0;
+}*/

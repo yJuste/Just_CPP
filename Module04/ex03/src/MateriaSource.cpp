@@ -27,7 +27,18 @@ MateriaSource::MateriaSource( const MateriaSource & m ) { *this = m; }
 
 // Operator Overload
 
-MateriaSource	&MateriaSource::operator = ( const MateriaSource & m ) { (void)m; return *this; }
+MateriaSource	&MateriaSource::operator = ( const MateriaSource & m )
+{
+	if (this != &m)
+	{
+		for (int i = 0; i < 4; i++)
+		{
+			if (_stock[i] != NULL)
+				_stock[i] = m._stock[i]->clone();
+		}
+	}
+	return *this;
+}
 
 // Methode
 

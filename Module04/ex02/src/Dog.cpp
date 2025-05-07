@@ -16,7 +16,7 @@ Dog::~Dog() { delete _brain; std::cout << "Dog Destructor Called" << std::endl; 
 
 Dog::Dog( const Dog & d ) { *this = d; }
 
-Dog	&Dog::operator = ( const Dog & d ) { AAnimal::operator = (d); return *this; }
+Dog	&Dog::operator = ( const Dog & d ) { if (this != &d) { _type = d.getType(); _brain = new Brain(); } return *this; }
 
 // Methode
 

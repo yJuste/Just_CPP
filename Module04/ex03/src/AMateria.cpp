@@ -25,6 +25,7 @@ std::ostream	&operator << ( std::ostream & o, const AMateria & m ) { return o <<
 
 // Methode
 
+// AMateriaa * clone() const = 0;
 void	AMateria::use( ICharacter & target ) { (void)target; }
 
 // ~etter
