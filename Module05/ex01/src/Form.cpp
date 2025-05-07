@@ -11,10 +11,18 @@
 
 // ~Structor
 
-Form::Form() : _name( "[No Name]" ), _approved( false ), _toSign( 149 ), _toExec( 150 ) {}
+Form::Form() : _name( "[No Name]" ), _approved( false ), _toSign( 150 ), _toExec( 150 ) {}
 Form::~Form() {}
 
 Form::Form( const Form & b ) : _name( b.getName() ), _approved( b.getApproved() ), _toSign( b.getApproved() ), _toExec( b.getToExec() ) {}
+
+Form::Form( const std::string & name, const int toSign, const int toExec ) : _name( name ), _approved( false ), _toSign( toSign ), _toExec( toExec )
+{
+	if (toSign <= 0) throw GradeTooHighException();
+	else if (toSign > 150) throw GradeTooLowException();
+	else if (toExec <= 0) throw GradeTooHighException();
+	else if (toExec > 150) throw GradeTooLowException();
+}
 
 // Operator Overload
 

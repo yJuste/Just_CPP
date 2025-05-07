@@ -16,7 +16,7 @@ int	main(void)
 		std::cout << std::endl;
 		Bureaucrat joel("Joel", 1);
 		std::cout << "A dude: " << joel << std::endl;
-		Form		f1;
+		Form		f1("Hospital costs", 150, 150);
 
 		std::cout << f1 << std::endl;
 		f1.beSigned(joel);
@@ -27,7 +27,7 @@ int	main(void)
 
 		Bureaucrat ellie("Ellie", 150);
 		std::cout << "Another dude: " << ellie << std::endl;
-		Form		f2;
+		Form		f2("Claqueur", 149, 150);
 
 		std::cout << f2 << std::endl;
 		ellie.signForm(f2);

@@ -34,12 +34,14 @@ class	Form
 
 		Form & operator = ( const Form & );
 
+		Form();
+
 	public:
 
-		Form();
 		~Form();
 
 		Form( const Form & );
+		Form( const std::string &, const int, const int );
 
 		// ~etter
 
