@@ -36,8 +36,7 @@ AForm	*Intern::makeForm( const std::string & form, const std::string & target ) 
 	for (int i = 0; i < (int)sizeof(entry) / (int)sizeof(Entry); i++)
 	{
 		const Entry & e = entry[i];
-		if (fm.find(e.keywords[0]) != std::string::npos ||
-			fm.find(e.keywords[1]) != std::string::npos)
+		if (fm.find(e.keywords[0]) != std::string::npos || fm.find(e.keywords[1]) != std::string::npos)
 		{
 			std::cout << "Intern creates " << e.keywords[0] << " " << e.keywords[1] << std::endl;
 			return e.create(target);
