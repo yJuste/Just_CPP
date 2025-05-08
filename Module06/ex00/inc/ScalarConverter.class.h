@@ -57,12 +57,12 @@ class	ScalarConverter::Exception : public std::exception
 
 class	ScalarConverter::ConversionException : public std::exception
 {
-	public: const char * what() const throw() { return "\033[91m[ Conversion Failed ]\033[0m"; }
+	public: const char * what() const throw() { return "\033[91mConversion Failed\033[0m"; }
 };
 
 class	ScalarConverter::NotPrintableException : public std::exception
 {
-	public: const char * what() const throw() { return "\033[91m[ Not Printable ]\033[0m"; }
+	public: const char * what() const throw() { return "\033[91mNot Printable\033[0m"; }
 };
 
 #endif

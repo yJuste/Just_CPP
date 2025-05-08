@@ -49,7 +49,7 @@ char	ScalarConverter::toChar( const std::string & s )
 		std::cout << "'";
 		return s[0];
 	}
-	if (!(ss >> n))
+	if (!(ss >> n) || !(n >= 0 && n <= 128))
 		throw ConversionException();
 	c = static_cast<char>(n);
 	if (!std::isprint(c))
@@ -77,8 +77,13 @@ double	ScalarConverter::toDouble( const std::string & s )
 	else if (s == "-inf")
 		return -std::numeric_limits<double>::infinity();
 
+	std::string		res = s;
+
+	if (s.back() == 'f')
+		res = s.substr(0, s.length() - 1);
+
 	double			n = 0.0;
-	std::stringstream	ss(s);
+	std::stringstream	ss(res);
 
 	if (!(ss >> n))
 		throw ConversionException();
