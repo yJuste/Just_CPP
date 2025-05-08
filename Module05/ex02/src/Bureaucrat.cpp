@@ -34,7 +34,7 @@ void	Bureaucrat::upgrade() { if (--_grade <= 0) return (_grade++, throw GradeToo
 
 void	Bureaucrat::downgrade() { if (++_grade > 150) return (_grade--, throw GradeTooLowException()); }
 
-void	Bureaucrat::signForm( Form & f ) const
+void	Bureaucrat::signForm( AForm & f ) const
 {
 	try
 	{

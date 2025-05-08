@@ -40,12 +40,12 @@ std::ostream	&operator << ( std::ostream & o, const Form & f )
 
 // Methode
 
-bool	Form::beSigned( const Bureaucrat & b )
+void	Form::beSigned( const Bureaucrat & b )
 {
 	if (b.getGrade() <= _toSign)
-		return _approved = true, true;
+		_approved = true;
 	else
-		return throw GradeTooLowException(), false;
+		throw GradeTooLowException();
 }
 
 // ~etter

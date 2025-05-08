@@ -1,14 +1,14 @@
 // ************************************************************************** //
 //                                                                            //
-//                Form.class.h                                                //
+//                AForm.class.h                                               //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef FORM_CLASS_H
-# define FORM_CLASS_H
+#ifndef AFORM_CLASS_H
+# define AFORM_CLASS_H
 
 // Standard Libraries
 
@@ -20,10 +20,10 @@
 class Bureaucrat;
 
 // ************************************************************************** //
-//                                 Form Class                                 //
+//                            Abstract Form Class                             //
 // ************************************************************************** //
 
-class	Form
+class	AForm
 {
 	private:
 
@@ -32,16 +32,27 @@ class	Form
 		const int			_toSign;
 		const int			_toExec;
 
-		Form & operator = ( const Form & );
+		AForm();
+		AForm & operator = ( const AForm & );
+		void checkGrade() const;
 
-		Form();
+	protected:
+
+		AForm( const std::string &, bool, const int, const int );
+
+		virtual void executeForm() const = 0;
 
 	public:
 
-		~Form();
+		virtual ~AForm();
 
-		Form( const Form & );
-		Form( const std::string &, const int, const int );
+		AForm( const AForm & );
+		AForm( const std::string &, const int, const int );
+
+		// Methode
+
+		void beSigned( const Bureaucrat & );
+		void execute( const Bureaucrat & ) const;
 
 		// ~etter
 
@@ -50,28 +61,30 @@ class	Form
 		int getToSign() const;
 		int getToExec() const;
 
-		// Methode
-
-		void beSigned( const Bureaucrat & );
-
 		// Exception
 
 		class GradeTooHighException;
 		class GradeTooLowException;
+		class FormNotSignedException;
 };
 
-std::ostream & operator << ( std::ostream &, const Form & );
+std::ostream & operator << ( std::ostream &, const AForm & );
 
 // Exception
 
-class	Form::GradeTooHighException : public std::exception
+class	AForm::GradeTooHighException : public std::exception
 {
 	public: const char * what() const throw() { return "\033[31merror\033[0m: Grade Too High: It can only be within [ 1-150 ]"; }
 };
 
-class	Form::GradeTooLowException : public std::exception
+class	AForm::GradeTooLowException : public std::exception
 {
 	public: const char * what() const throw() { return "\033[31merror\033[0m: Grade Too Low: It can only be within [ 1-150 ]"; }
+};
+
+class	AForm::FormNotSignedException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: The form is not signed, check again pussy."; }
 };
 
 #endif
