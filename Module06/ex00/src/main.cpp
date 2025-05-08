@@ -9,8 +9,14 @@
 
 # include "main.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	ScalarConverter::convert("42");
+	if (argc != 2)
+	{
+		std::cerr << "Display something to convert in : ";
+		std::cerr << "\033[91m" << argv[0] << " [number/character]" << "\033[0m" << std::endl;
+		return 1;
+	}
+	ScalarConverter::convert(argv[1]);
 	return 0;
 }

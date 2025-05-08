@@ -13,6 +13,9 @@
 // Standard Libraries
 
 # include <iostream>
+# include <sstream>
+# include <cmath>
+# include <iomanip>
 
 // ************************************************************************** //
 //                           ScalarConverter Class                            //
@@ -33,7 +36,14 @@ class	ScalarConverter
 
 		static void convert( const std::string & );
 
-		class Exception;
+		static char toChar( const std::string & );
+		static int toInt( const std::string & );
+		static float toFloat( const std::string & );
+		static double toDouble( const std::string & );
+
+		class Exception; // Prototypage
+		class ConversionException;
+		class NotPrintableException;
 };
 
 std::ostream & operator << ( std::ostream &, const ScalarConverter & );
@@ -42,7 +52,17 @@ std::ostream & operator << ( std::ostream &, const ScalarConverter & );
 
 class	ScalarConverter::Exception : public std::exception
 {
-	public: const char * what() const throw() { return "\033[31merror\033[0m: Error"; }
+	public: const char * what() const throw() { return "\033[91merror\033[0m: Error"; }
+};
+
+class	ScalarConverter::ConversionException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[91m[ Conversion Failed ]\033[0m"; }
+};
+
+class	ScalarConverter::NotPrintableException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[91m[ Not Printable ]\033[0m"; }
 };
 
 #endif
