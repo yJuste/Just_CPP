@@ -46,15 +46,11 @@ void	AForm::beSigned( const Bureaucrat & b )
 
 void	AForm::execute( const Bureaucrat & b ) const
 {
-	try
-	{
-		if (_approved == false)
-			throw FormNotSignedException();
-		if (b.getGrade() > _toExec)
-			throw GradeTooLowException();
-		//executeForm(b);
-	}
-	catch ( std::exception & e ) { std::cout << e.what() << std::endl; }
+	if (_approved == false)
+		throw FormNotSignedException();
+	if (b.getGrade() > _toExec)
+		throw GradeTooLowException();
+	executeForm();
 }
 
 // ~etter

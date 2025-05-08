@@ -34,6 +34,7 @@ class	AForm
 
 		AForm();
 		AForm & operator = ( const AForm & );
+
 		void checkGrade() const;
 
 	protected:

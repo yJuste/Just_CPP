@@ -46,6 +46,7 @@ class	Bureaucrat
 		void upgrade();
 		void downgrade();
 		void signForm( AForm & ) const;
+		void executeForm( const AForm & );
 
 		// ~etter
 

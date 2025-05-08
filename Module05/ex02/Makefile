@@ -2,7 +2,7 @@ NAME = bureaucrat
 
 # Flags
 CC = c++
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CFLAGS = -Wall -Wextra -Werror -std=c++98 # -g
 FLAGS =
 
 # Directories

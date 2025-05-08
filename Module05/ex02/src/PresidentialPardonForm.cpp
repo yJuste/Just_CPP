@@ -24,4 +24,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator = ( const PresidentialP
 
 // Methode
 
-void	PresidentialPardonForm::executeForm() const {}
+void	PresidentialPardonForm::executeForm() const
+{
+	std::cout << "\033[96m" << getName() << ", you have been pardoned by Zaphod Beeblerox. 😌" << "\033[0m" << std::endl;
+}

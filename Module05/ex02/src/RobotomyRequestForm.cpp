@@ -24,4 +24,16 @@ RobotomyRequestForm	&RobotomyRequestForm::operator = ( const RobotomyRequestForm
 
 // Methode
 
-void	RobotomyRequestForm::executeForm() const {}
+void	RobotomyRequestForm::executeForm() const
+{
+	std::srand(std::time(NULL));
+	int random = std::rand();
+
+	std::cout << "\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a";
+	std::cout << "Attempting robotomy of " << getName() << "..." << std::endl;
+
+	if (random % 2 == 0)
+	std::cout << "\033[96m" << "I HOPE YOU HEAR ME, YOU WERE ROBOTOMIZED " << getName() << " ! ONLY FOR 50% OF THE TIME!!!!" << "\033[0m" << std::endl;
+	else
+		throw RobotomizedFailed();
+}

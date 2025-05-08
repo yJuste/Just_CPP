@@ -26,4 +26,13 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator = ( const ShrubberyCreati
 
 void	ShrubberyCreationForm::executeForm() const
 {
+	std::ofstream		outfile;
+
+	outfile.open(getName() + "_shrubbery", std::ofstream::binary);
+	std::string	asciiTree = "          .     .  .      +     .      .          .\n     .       .      .     #       .           .\n        .      .         ###            .      .      .\n      .      .   \"#:. .:##\"##:. .:#\"  .      .\n          .      . \"####\"###\"####\"  .\n       .     \"#:.    .:#\"###\"#:.    .:#\"  .        .       .\n  .             \"#########\"#########\"        .        .\n        .    \"#:.  \"####\"###\"####\"  .:#\"   .       .\n     .     .  \"#######\"\"##\"##\"\"#######\"                  .\n                .\"##\"#####\"#####\"##\"           .      .\n    .   \"#:. ...  .:##\"###\"###\"##:.  ... .:#\"     .\n      .     \"#######\"##\"#####\"##\"#######\"      .     .\n    .    .     \"#####\"\"#######\"\"#####\"    .      .\n            .     \"      000      \"    .     .\n       .         .   .   000     .        .       .\n.. .. ..................O000O........................ ...... ...";
+
+	outfile.write(asciiTree.c_str(), asciiTree.length());
+	outfile.close();
+
+	std::cout << "\033[96m" << "🎄 Made it! Ascii formed 🎄" << "\033[0m" << std::endl;
 }

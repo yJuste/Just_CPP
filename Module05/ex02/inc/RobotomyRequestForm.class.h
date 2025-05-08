@@ -37,6 +37,15 @@ class	RobotomyRequestForm : public AForm
 
 		RobotomyRequestForm( const RobotomyRequestForm & );
 		RobotomyRequestForm( const std::string & );
+
+		class RobotomizedFailed;
+};
+
+// Exception
+
+class	RobotomyRequestForm::RobotomizedFailed : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: SYSTEM FAILED, ROBOTOMIZED CANCELED"; }
 };
 
 #endif
