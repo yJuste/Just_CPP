@@ -26,7 +26,7 @@ RobotomyRequestForm	&RobotomyRequestForm::operator = ( const RobotomyRequestForm
 
 void	RobotomyRequestForm::executeForm() const
 {
-	std::srand(std::time(NULL));
+	std::srand(time(NULL));
 	int random = std::rand();
 
 	std::cout << "\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a\a";

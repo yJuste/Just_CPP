@@ -18,7 +18,7 @@ int	main(void)
 	try
 	{
 		verso = new Bureaucrat("Verso", 5);
-		expedition33 = someRandomIntern.makeForm("Expedition33", "Renoir");
+		expedition33 = someRandomIntern.makeForm("presidential form", "Renoir");
 
 		std::cout << *verso << std::endl;
 		std::cout << *expedition33 << std::endl;
