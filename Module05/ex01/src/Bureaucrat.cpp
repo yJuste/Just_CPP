@@ -43,7 +43,7 @@ void	Bureaucrat::signForm( Form & f ) const
 	}
 	catch ( std::exception & e )
 	{
-		std::cout << "\033[34m" << getName() << " cannot sign the form because the Taylor Swift's concert is soon." << "\033[0m" << std::endl;
+		std::cerr << "\033[34m" << getName() << " cannot sign the form because the Taylor Swift's concert is soon." << "\033[0m" << std::endl;
 	}
 }
 

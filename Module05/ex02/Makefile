@@ -13,7 +13,7 @@ OBJ_DIR = obj
 # Files
 SRC =	main.cpp				\
 	Bureaucrat.cpp				\
-	Form.cpp				\
+	AForm.cpp				\
 	PresidentialPardonForm.cpp		\
 	RobotomyRequestForm.cpp			\
 	ShrubberyCreationForm.cpp

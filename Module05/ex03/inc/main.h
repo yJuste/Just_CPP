@@ -19,6 +19,7 @@
 // ************************************************************************** //
 
 # include "Bureaucrat.class.h"
+# include "Intern.class.h"
 # include "AForm.class.h"
 # include "ShrubberyCreationForm.class.h"
 # include "RobotomyRequestForm.class.h"

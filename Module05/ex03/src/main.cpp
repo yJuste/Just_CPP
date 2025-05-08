@@ -13,11 +13,12 @@ int	main(void)
 {
 	Bureaucrat	* verso = NULL;
 	AForm		* expedition33 = NULL;
+	Intern		someRandomIntern;
 
 	try
 	{
 		verso = new Bureaucrat("Verso", 5);
-		expedition33 = new PresidentialPardonForm("Renoir");
+		expedition33 = someRandomIntern.makeForm("Expedition33", "Renoir");
 
 		std::cout << *verso << std::endl;
 		std::cout << *expedition33 << std::endl;

@@ -37,10 +37,10 @@ void	Bureaucrat::downgrade() { if (++_grade > 150) return (_grade--, throw Grade
 void	Bureaucrat::signForm( AForm & f ) const
 {
 	try { f.beSigned(*this); std::cout << "\033[34m" << getName() << " signed " << f.getName() << "\033[0m" << std::endl; }
-	catch ( std::exception & e ) { std::cout << "\033[34m" << getName() << " cannot sign the form because the Taylor Swift's concert is soon." << "\033[0m" << std::endl; }
+	catch ( std::exception & e ) { std::cerr << "\033[34m" << getName() << " cannot sign the form because the Taylor Swift's concert is soon." << "\033[0m" << std::endl; }
 }
 
-void	Bureaucrat::executeForm( const AForm & form )
+void	Bureaucrat::executeForm( const AForm & form ) const
 {
 	try { form.execute(*this); std::cout << getName() << " executed " << form.getName(); }
 	catch ( std::exception & e ) { std::cerr << e.what() << std::endl; }

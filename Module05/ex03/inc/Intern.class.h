@@ -14,6 +14,13 @@
 
 # include <iostream>
 
+// Dependences
+
+# include "AForm.class.h"
+# include "ShrubberyCreationForm.class.h"
+# include "RobotomyRequestForm.class.h"
+# include "PresidentialPardonForm.class.h"
+
 // ************************************************************************** //
 //                                Intern Class                                //
 // ************************************************************************** //
@@ -22,15 +29,42 @@ class	Intern
 {
 	private:
 
-		Intern();
+		static AForm * createShrubberyCreationForm( const std::string & );
+		static AForm * createRobotomyRequestForm( const std::string & );
+		static AForm * createPresidentialPardonForm( const std::string & );
 
-		Intern & operator = ( const Intern & );
+		static std::string	toLower( const std::string & );
 
 	public:
 
+		Intern();
 		~Intern();
 
 		Intern( const Intern & );
+		Intern & operator = ( const Intern & );
+
+		// Methode
+
+		AForm * makeForm( const std::string &, const std::string & ) const;
+
+		// Exception
+
+		class NoFormFound;
+
+		// Keywords
+
+		struct Entry
+		{
+			const char * keywords[2];
+			AForm * (*create)( const std::string & );
+		};
+};
+
+// Exception
+
+class	Intern::NoFormFound : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Intern couldn't find the Form."; }
 };
 
 #endif
