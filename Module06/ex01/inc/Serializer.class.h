@@ -16,7 +16,7 @@
 
 // Dependences
 
-# include "Data.class.h"
+# include "Data.struct.h"
 
 // ************************************************************************** //
 //                              Serializer Class                              //
