@@ -1,46 +1,29 @@
 // ************************************************************************** //
 //                                                                            //
-//                Serialization.class.h                                       //
+//                Data.struct.h                                               //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef SERIALIZATION_CLASS_H
-# define SERIALIZATION_CLASS_H
+#ifndef DATA_STRUCT_H
+# define DATA_STRUCT_H
 
 // Standard Libraries
 
 # include <iostream>
 
 // ************************************************************************** //
-//                            Serialization Class                             //
+//                                 Data Struct                                //
 // ************************************************************************** //
 
-class	Serialization
+struct	Data
 {
-	private:
+	int				n;
+	const std::string		s;
 
-		Serialization();
-
-		Serialization( const Serialization & );
-		Serialization & operator = ( const Serialization & );
-
-	public:
-
-		~Serialization();
-
-		class Exception; // Prototypage
-};
-
-std::ostream & operator << ( std::ostream &, const Serialization & );
-
-// Exception
-
-class	Serialization::Exception : public std::exception
-{
-	public: const char * what() const throw() { return "\033[91merror\033[0m: Error"; }
+	Data(int number = 0, const std::string & string = "" ) : n(number), s(string) {}
 };
 
 #endif

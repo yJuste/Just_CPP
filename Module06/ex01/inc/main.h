@@ -18,6 +18,7 @@
 //                                    Classes                                 //
 // ************************************************************************** //
 
-# include "Serialization.class.h"
+# include "Serializer.class.h"
+# include "Data.class.h"
 
 #endif

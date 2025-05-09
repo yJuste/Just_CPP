@@ -12,7 +12,7 @@ OBJ_DIR = obj
 
 # Files
 SRC =	main.cpp			\
-	Serialization.cpp
+	Serializer.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
