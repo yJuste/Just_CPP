@@ -1,42 +1,32 @@
 // ************************************************************************** //
 //                                                                            //
-//                whatever.template.h                                         //
+//                iter.template.h                                             //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef WHATEVER_TEMPLATE_H
-# define WHATEVER_TEMPLATE_H
+#ifndef ITER_TEMPLATE_H
+# define ITER_TEMPLATE_H
 
 // ************************************************************************** //
 //                                  Templates                                 //
 // ************************************************************************** //
 
-template <typename T>
+template <typename T, typename F>
 
-void	swap( T & a, T & b )				// swap
+void	iter( T * arr, int len, F f )			// iter
 {
-	T	c;
-
-	c = a;
-	a = b;
-	b = c;
+	for (int i = 0; i < len; ++i)
+		f(arr[i]);
 }
 
 template <typename T>
 
-const T & min( const T & a, const T & b )		// min
+void	add5( T & a )					// add5
 {
-	return a < b ? a : b;
-}
-
-template <typename T>
-
-const T & max( const T & a, const T & b )		// max
-{
-	return b > a ? b : a;
+	a += 5;
 }
 
 #endif
