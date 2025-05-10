@@ -13,10 +13,9 @@
 // Standard Libraries
 
 # include <iostream>
-# include <Array.hpp>
 
-// Defines
+// Dependences
 
-# define MAX_VAL 750
+# include "whatever.template.h"
 
 #endif
