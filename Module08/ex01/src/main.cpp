@@ -59,5 +59,24 @@ int	main(void)
 		std::cout << sp.longestSpan() << std::endl;
 	}
 	catch ( std::exception & e ) { std::cerr << e.what() << std::endl; }
+	std::cout << std::endl;
+	std::cout << "Test des iterators: " << std::endl;
+	try
+	{
+		Span			amazing(10);
+		std::vector<int>	tab(5, 100);
+
+		amazing.addNumber(2);
+		amazing.addNumber(4);
+		amazing.addNumber(6);
+		amazing.addNumber(8);
+		amazing.addNumber(10);
+
+		amazing.iterate(tab.begin(), tab.end());
+
+		std::cout << amazing.shortestSpan() << std::endl;
+		std::cout << amazing.longestSpan() << std::endl;
+	}
+	catch ( std::exception & e ) { std::cerr << e.what() << std::endl; }
 	return 0;
 }

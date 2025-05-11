@@ -40,6 +40,8 @@ class	Span
 		int shortestSpan() const;
 		int longestSpan() const;
 
+		template <typename T> void iterate( T begin, T end );
+
 		class Exception;
 };
 

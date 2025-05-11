@@ -19,7 +19,7 @@ Span::Span( unsigned int n ) : _n( n ), _tab( 0 ) { _tab.reserve(_n); }
 
 // Operator Overload
 
-Span	&Span::operator = ( const Span & s ) { (void)s; return *this; }
+Span	&Span::operator = ( const Span & s ) { if (this != &s) { _n = s._n; _tab = s._tab; } return *this; }
 
 std::ostream	&operator << ( std::ostream & o, const Span & s ) { (void)s; return o << " Operator Span. " << std::endl; }
 
