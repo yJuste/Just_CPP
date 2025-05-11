@@ -20,7 +20,8 @@ class	Array
 {
 	private:
 
-		T		_arr;
+		T			*_arr;
+		unsigned int		_size;
 
 	public:
 
@@ -29,42 +30,54 @@ class	Array
 
 		Array( unsigned int );
 
-		Array( const T & );
-		Array & operator = ( const T & );
+		Array( const Array & );
+		Array & operator = ( const Array & );
+		T & operator [] ( int ) const;
 
-		// Member function
+		// ~etter
 
-		int size() const;
-
-		T getArr() const;
+		unsigned int size() const;
 };
 
-template <typename T>
-
-std::ostream	&operator << ( std::ostream & o, const Array<T> & t ) { return o << "Arr size: " << t.getArr(); }
+template <typename T> std::ostream & operator << ( std::ostream & o, const Array<T> & t ) { return o << "Arr size: " << t.size(); }
 
 // ************************************************************************** //
-//                                Array Class                                 //
+//                          Array Class Functions                             //
 // ************************************************************************** //
 
 // ~structor
 
-template <typename T> Array<T>::Array() {}
-template <typename T> Array<T>::~Array() {}
+template <typename T> Array<T>::Array() : _arr( NULL ), _size( 0 ) {}
+template <typename T> Array<T>::~Array() { delete [] _arr; }
 
-template <typename T> Array<T>::Array( unsigned int n ) : _arr(n) {}
+template <typename T> Array<T>::Array( unsigned int n ) : _arr( new T[n]() ), _size( n ) {}
 
 // Operator overload
 
-template <typename T> Array<T>::Array( const T & t ) { *this = t; }
-template <typename T> Array<T>& Array<T>::operator = ( const T & t ) { (void)t; return *this; }
+template <typename T> Array<T>::Array( const Array<T> & t ) : _arr( NULL ), _size( t.size() ) { *this = t; }
 
-// Member function
+template <typename T> Array<T> & Array<T>::operator = ( const Array<T> & t )
+{
+	if (this != &t)
+	{
+		delete [] _arr;
+		_size = t.size();
+		_arr = new T[_size];
+		for (unsigned int i = 0; i < _size; ++i)
+			_arr[i] = t._arr[i];
+	}
+	return *this;
+}
 
-template <typename T> int Array<T>::size() const { return _arr; }
+template <typename T> T & Array<T>::operator [] ( int idx ) const
+{
+	if (idx < 0 || static_cast<unsigned int>(idx) >= size())
+		throw std::out_of_range("Index of of range.");
+	return _arr[idx];
+}
 
 // ~etter
 
-template <typename T> T	Array<T>::getArr() const { return _arr; }
+template <typename T> unsigned int Array<T>::size() const { return _size; }
 
 #endif

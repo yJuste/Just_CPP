@@ -9,18 +9,6 @@
 
 # include "main.h"
 
-int	main(void)
-{
-	Array<int>	n(5);
-	int		*a;
-
-	a = new int();
-	std::cout << *a << std::endl;
-	std::cout << n << std::endl;
-	delete a;
-}
-
-/*
 int	main(int, char **)
 {
 	Array<int> numbers(MAX_VAL);
@@ -69,4 +57,4 @@ int	main(int, char **)
 	}
 	delete [] mirror;//
 	return 0;
-}*/
+}
