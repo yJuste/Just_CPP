@@ -14,4 +14,6 @@
 //                               easyfind Template                            //
 // ************************************************************************** //
 
+template <typename T>	typename T::iterator easyfind( T &, int );
+
 #endif
