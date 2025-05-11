@@ -20,17 +20,27 @@
 
 class	Span
 {
-	public:
+	private:
+
+		unsigned int		_n;
+		std::vector<int>	_tab;
 
 		Span();
+
+	public:
+
 		~Span();
 
 		Span( const Span & );
+		Span( unsigned int );
+
 		Span & operator = ( const Span & );
 
-		// Exception
+		void addNumber( int );
+		int shortestSpan() const;
+		int longestSpan() const;
 
-		class Exception; // prototype
+		class Exception;
 };
 
 std::ostream & operator << ( std::ostream &, const Span & );
@@ -39,7 +49,7 @@ std::ostream & operator << ( std::ostream &, const Span & );
 
 class	Span::Exception : public std::exception
 {
-	public: const char * what() const throw() { return "\033[31merror\033[0m: Error"; }
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Exception Span"; }
 };
 
 #endif
