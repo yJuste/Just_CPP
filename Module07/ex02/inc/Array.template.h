@@ -23,15 +23,17 @@ class	Array
 		T			*_arr;
 		unsigned int		_size;
 
+		Array();
+
+		Array & operator = ( const Array & );
+
 	public:
 
-		Array();
 		~Array();
 
 		Array( unsigned int );
 
 		Array( const Array & );
-		Array & operator = ( const Array & );
 		T & operator [] ( int ) const;
 
 		// ~etter
