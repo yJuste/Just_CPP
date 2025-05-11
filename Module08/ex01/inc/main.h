@@ -13,12 +13,11 @@
 // Standard Libraries
 
 # include <iostream>
-# include <list>
 
 // ************************************************************************** //
 //                                 Dependences                                //
 // ************************************************************************** //
 
-# include "../src/easyfind.tpp"
+# include "Span.class.h"
 
 #endif

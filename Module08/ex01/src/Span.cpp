@@ -1,24 +1,23 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                Span.cpp                                                    //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+#include "Span.class.h"
 
-// Standard Libraries
+// ~Structor
 
-# include <iostream>
-# include <list>
+Span::Span() {}
+Span::~Span() {}
 
-// ************************************************************************** //
-//                                 Dependences                                //
-// ************************************************************************** //
+Span::Span( const Span & s ) { *this = s; }
 
-# include "../src/easyfind.tpp"
+// Operator Overload
 
-#endif
+Span	&Span::operator = ( const Span & s ) { (void)s; return *this; }
+
+std::ostream	&operator << ( std::ostream & o, const Span & s ) { (void)s; return o << " Operator Span. " << std::endl; }

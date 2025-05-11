@@ -1,24 +1,15 @@
 // ************************************************************************** //
 //                                                                            //
-//                main.h                                                      //
+//                main.cpp                                                    //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MAIN_H
-# define MAIN_H
+# include "main.h"
 
-// Standard Libraries
-
-# include <iostream>
-# include <list>
-
-// ************************************************************************** //
-//                                 Dependences                                //
-// ************************************************************************** //
-
-# include "../src/easyfind.tpp"
-
-#endif
+int	main(void)
+{
+	return 0;
+}
