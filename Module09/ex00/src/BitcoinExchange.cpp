@@ -30,7 +30,7 @@ void	BitcoinExchange::parseExchangeRateFile( const std::string & filename )
 	{
 		std::ifstream		infile;
 
-		infile.open(filename, std::ifstream::binary);
+		infile.open(filename.c_str(), std::ifstream::binary);
 		if (!infile.is_open())
 			throw Exception();
 
@@ -70,9 +70,23 @@ void	BitcoinExchange::printExchangeRate() const
 		std::cout << it->first << "," << it->second << std::endl;
 }
 
+bool	BitcoinExchange::regexDate( const std::string & date )
+{
+	if (date.length() != 10)
+		return false;
+
+	for (int i = 0; i < 10; ++i)
+	{
+		if (((i != 4 && i != 7) && !std::isdigit(date.at(i)))
+			|| ((i == 4 || i == 7) && date.at(i) != '-'))
+			return false;
+	}
+	return true;
+}
+
 bool	BitcoinExchange::validDate( const std::string & date )
 {
-	if (!std::regex_match(date, std::regex("\\d{4}-\\d{2}-\\d{2}")))
+	if (!regexDate(date))
 		return false;
 
 	int			year;
@@ -108,5 +122,3 @@ bool	BitcoinExchange::validDate( const std::string & date )
 
 	return true;
 }
-
-// bool valideDate
