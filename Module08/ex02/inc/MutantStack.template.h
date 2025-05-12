@@ -1,27 +1,23 @@
 // ************************************************************************** //
 //                                                                            //
-//                MutantStack.class.h                                         //
+//                MutantStack.template.h                                      //
 //                Created on  : xxx May xx xx:xx:xx 2025                      //
 //                Last update : xxx May xx xx:xx:xx 2025                      //
 //                Made by     : Juste - Jules Longin                          //
 //                                                                            //
 // ************************************************************************** //
 
-#ifndef MUTANTSTACK_CLASS_H
-# define MUTANTSTACK_CLASS_H
-
-// Standard Libraries
-
-# include <iostream>
+#ifndef MUTANTSTACK_TEMPLATE_H
+# define MUTANTSTACK_TEMPLATE_H
 
 // ************************************************************************** //
-//                             MutantStack Class                              //
+//                           MutantStack Template                             //
 // ************************************************************************** //
 
-class	MutantStack
+template <typename T, typename Container = std::deque<T> >
+
+class	MutantStack : public std::stack<T, Container>
 {
-	private:
-
 	public:
 
 		MutantStack();
@@ -31,14 +27,25 @@ class	MutantStack
 
 		MutantStack & operator = ( const MutantStack & );
 
+		// Iterators
+
+		typedef typename Container::iterator iterator;
+		typedef typename Container::reverse_iterator reverse_iterator;
+
+		iterator begin();
+		iterator end();
+
+		reverse_iterator rbegin();
+		reverse_iterator rend();
+
 		class Exception;
 };
 
-std::ostream & operator << ( std::ostream &, const MutantStack & );
-
 // Exception
 
-class	MutantStack::Exception : public std::exception
+template <typename T, typename C>
+
+class	MutantStack<T, C>::Exception : public std::exception
 {
 	public: const char * what() const throw() { return "\033[31merror\033[0m: Exception MutantStack"; }
 };

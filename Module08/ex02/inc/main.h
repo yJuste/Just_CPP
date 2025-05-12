@@ -18,6 +18,6 @@
 //                                 Dependences                                //
 // ************************************************************************** //
 
-# include "MutantStack.class.h"
+# include "../src/MutantStack.tpp"
 
 #endif

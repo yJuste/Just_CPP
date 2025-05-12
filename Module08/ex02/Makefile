@@ -11,8 +11,7 @@ INC_DIR = inc
 OBJ_DIR = obj
 
 # Files
-SRC =	main.cpp				\
-	MutantStack.cpp
+SRC =	main.cpp
 
 OBJ = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
