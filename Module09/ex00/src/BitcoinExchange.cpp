@@ -29,6 +29,72 @@ std::ostream	&operator << ( std::ostream & o, const BitcoinExchange & b ) { (voi
 
 // Methode
 
+void	BitcoinExchange::parseDB( const std::string & filename )
+{
+	std::ifstream		infile;
+
+	infile.open(filename.c_str(), std::ifstream::binary);
+	if (!infile.is_open())
+		{ infile.close(); throw BadDBException(); }
+
+	std::string		line;
+
+	std::getline(infile, line);
+
+	while (std::getline(infile, line))
+	{
+		std::stringstream	ss1(line);
+		std::string		date;
+		std::string		value;
+
+		if (!std::getline(ss1, date, ',') || !std::getline(ss1, value))
+			{ infile.close(); throw BadDBException(); }
+
+		date = trim(date);
+		value = trim(value);
+
+		if (!validDate(date))
+			{ infile.close(); throw BadDBException(); }
+
+		std::stringstream	ss2(value);
+		float			val;
+
+		if (!(ss2 >> val) || val < 0)
+			{ infile.close(); throw BadDBException(); }
+
+		_exchangeRate.insert(std::pair<std::string, float>(date, val));
+	}
+	infile.close();
+	//printBD();
+}
+
+void	BitcoinExchange::displayRate( const std::string & filename ) const
+{
+	std::ifstream		infile;
+
+	infile.open(filename.c_str(), std::ifstream::binary);
+	if (!infile.is_open())
+		throw std::logic_error("Error: could not open file.");
+
+	std::string		line;
+
+	std::getline(infile, line);
+
+	while (std::getline(infile, line))
+		processLine(line);
+	infile.close();
+}
+
+// Private
+
+void	BitcoinExchange::printDB() const
+{
+	std::multimap<std::string, float>::const_iterator		it;
+
+	for (it = _exchangeRate.begin(); it != _exchangeRate.end(); ++it)
+		std::cout << it->first << "," << it->second << std::endl;
+}
+
 void	BitcoinExchange::processLine( const std::string & line ) const
 {
 	std::stringstream	ss1(line);
@@ -70,72 +136,6 @@ void	BitcoinExchange::processLine( const std::string & line ) const
 	float		rate = it->second;
 
 	std::cout << date << " => " << val << " = " << (val * rate) << std::endl;
-}
-
-void	BitcoinExchange::displayRate( const std::string & filename ) const
-{
-	std::ifstream		infile;
-
-	infile.open(filename.c_str(), std::ifstream::binary);
-	if (!infile.is_open())
-		throw std::logic_error("Error: could not open file.");
-
-	std::string		line;
-
-	std::getline(infile, line);
-
-	while (std::getline(infile, line))
-		processLine(line);
-	infile.close();
-}
-
-void	BitcoinExchange::parseDB( const std::string & filename )
-{
-	std::ifstream		infile;
-
-	infile.open(filename.c_str(), std::ifstream::binary);
-	if (!infile.is_open())
-		{ infile.close(); throw BadDBException(); }
-
-	std::string		line;
-
-	std::getline(infile, line);
-
-	while (std::getline(infile, line))
-	{
-		std::stringstream	ss1(line);
-		std::string		date;
-		std::string		value;
-
-		if (!std::getline(ss1, date, ',') || !std::getline(ss1, value))
-			{ infile.close(); throw BadDBException(); }
-
-		date = trim(date);
-		value = trim(value);
-
-		if (!validDate(date))
-			{ infile.close(); throw BadDBException(); }
-
-		std::stringstream	ss2(value);
-		float			val;
-
-		if (!(ss2 >> val) || val < 0)
-			{ infile.close(); throw BadDBException(); }
-
-		_exchangeRate.insert(std::pair<std::string, float>(date, val));
-	}
-	infile.close();
-	//printBD();
-}
-
-// Private
-
-void	BitcoinExchange::printDB() const
-{
-	std::multimap<std::string, float>::const_iterator		it;
-
-	for (it = _exchangeRate.begin(); it != _exchangeRate.end(); ++it)
-		std::cout << it->first << "," << it->second << std::endl;
 }
 
 bool	BitcoinExchange::validDate( const std::string & date ) const

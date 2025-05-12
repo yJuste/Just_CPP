@@ -34,8 +34,8 @@ class	BitcoinExchange
 
 		void processLine( const std::string & ) const;
 
-		bool regexDate( const std::string & ) const;
 		bool validDate( const std::string & ) const;
+		bool regexDate( const std::string & ) const;
 
 		std::string trim( const std::string & ) const;
 
@@ -51,18 +51,12 @@ class	BitcoinExchange
 		void parseDB( const std::string & );
 		void displayRate( const std::string & ) const;
 
-		class Exception;
 		class BadDBException;
 };
 
 std::ostream & operator << ( std::ostream &, const BitcoinExchange & );
 
 // Exception
-
-class	BitcoinExchange::Exception : public std::exception
-{
-	public: const char * what() const throw() { return "\033[31merror\033[0m: Exception BitcoinExchange"; }
-};
 
 class	BitcoinExchange::BadDBException : public std::exception
 {
