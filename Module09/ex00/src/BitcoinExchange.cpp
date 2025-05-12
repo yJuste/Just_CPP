@@ -50,7 +50,7 @@ void	BitcoinExchange::parseExchangeRateFile( const std::string & filename )
 			std::stringstream	ss2(rate);
 			float			r;
 
-			if (!(ss2 >> r))
+			if (!(ss2 >> r) || r < 0)
 				throw Exception();
 
 			_exchangeRate[date] = r;
@@ -94,8 +94,8 @@ bool	BitcoinExchange::validDate( const std::string & date )
 	if (day > daysInMonth[month - 1])
 		return false;
 
-	std::time_t		now = std::time(0);
-	std::tm			*lm = std::localtime(&now);
+	time_t			now = std::time(0);
+	tm			*lm = std::localtime(&now);
 
 	int			cYear = 1900 + lm->tm_year;
 	int			cMonth = 1 + lm->tm_mon;
