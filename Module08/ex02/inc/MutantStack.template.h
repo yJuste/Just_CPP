@@ -10,11 +10,16 @@
 #ifndef MUTANTSTACK_TEMPLATE_H
 # define MUTANTSTACK_TEMPLATE_H
 
+// Standard Libraries
+
+# include <list>
+
 // ************************************************************************** //
 //                           MutantStack Template                             //
 // ************************************************************************** //
 
 template <typename T, typename Container = std::deque<T> >
+// FOR LIST: template <typename T, typename Container = std::list<T> >
 
 class	MutantStack : public std::stack<T, Container>
 {
