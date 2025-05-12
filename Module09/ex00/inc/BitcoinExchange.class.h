@@ -28,7 +28,16 @@ class	BitcoinExchange
 {
 	private:
 
-		std::map<std::string, float>		_exchangeRate;
+		std::multimap<std::string, float>	_exchangeRate;
+
+		void printDB() const;
+
+		void processLine( const std::string & ) const;
+
+		bool regexDate( const std::string & ) const;
+		bool validDate( const std::string & ) const;
+
+		std::string trim( const std::string & ) const;
 
 	public:
 
@@ -39,12 +48,11 @@ class	BitcoinExchange
 
 		BitcoinExchange & operator = ( const BitcoinExchange & );
 
-		void parseExchangeRateFile( const std::string & );
-		void printExchangeRate() const;
-		static bool validDate( const std::string & );
-		static bool regexDate( const std::string & );
+		void parseDB( const std::string & );
+		void displayRate( const std::string & ) const;
 
 		class Exception;
+		class BadDBException;
 };
 
 std::ostream & operator << ( std::ostream &, const BitcoinExchange & );
@@ -54,6 +62,11 @@ std::ostream & operator << ( std::ostream &, const BitcoinExchange & );
 class	BitcoinExchange::Exception : public std::exception
 {
 	public: const char * what() const throw() { return "\033[31merror\033[0m: Exception BitcoinExchange"; }
+};
+
+class	BitcoinExchange::BadDBException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Bad DataBase Exception: Parsing is not good"; }
 };
 
 #endif

@@ -9,11 +9,20 @@
 
 # include "main.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	BitcoinExchange		btc;
+	if (argc != 2)
+	{
+		std::cerr << "\033[31merror\033[0m: ./btc [file]" << std::endl;
+		return 1;
+	}
+	try
+	{
+		BitcoinExchange		btc;
 
-	btc.parseExchangeRateFile("data.csv");
-	btc.printExchangeRate();
+		btc.parseDB("data.csv");
+		btc.displayRate(argv[1]);
+	}
+	catch ( std::exception & e ) { std::cerr << e.what() << std::endl; return 1; }
 	return 0;
 }
