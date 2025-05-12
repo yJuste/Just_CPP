@@ -17,6 +17,7 @@
 # include <string>
 # include <fstream>
 # include <sstream>
+# include <regex>
 
 // ************************************************************************** //
 //                            BitcoinExchange Class                           //
@@ -39,6 +40,7 @@ class	BitcoinExchange
 
 		void parseExchangeRateFile( const std::string & );
 		void printExchangeRate() const;
+		static bool validDate( const std::string & );
 
 		class Exception;
 };

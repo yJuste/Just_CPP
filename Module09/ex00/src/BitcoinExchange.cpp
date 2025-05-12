@@ -40,16 +40,26 @@ void	BitcoinExchange::parseExchangeRateFile( const std::string & filename )
 
 		while (std::getline(infile, line))
 		{
-			std::stringstream	ss(line);
+			std::stringstream	ss1(line);
 			std::string		date;
 			std::string		rate;
-	
-			if (!std::getline(ss, date, ',') || !std::getline(ss, rate, '\n'))
+
+			if (!std::getline(ss1, date, ',') || !std::getline(ss1, rate))
 				throw Exception();
-			_exchangeRate[date] = std::stof(rate);
+
+			std::stringstream	ss2(rate);
+			float			r;
+
+			if (!(ss2 >> r))
+				throw Exception();
+
+			_exchangeRate[date] = r;
+
+			if (!validDate(date))
+				throw Exception();
 		}
 	}
-	catch ( std::exception & e ) { std::cerr << e.what() << std::endl; }
+	catch ( std::exception & e ) { std::cerr << e.what() << std::endl; _exchangeRate.clear(); }
 }
 
 void	BitcoinExchange::printExchangeRate() const
@@ -60,5 +70,11 @@ void	BitcoinExchange::printExchangeRate() const
 		std::cout << it->first << "," << it->second << std::endl;
 }
 
+bool	BitcoinExchange::validDate( const std::string & date )
+{
+	if (!std::regex_match(date, std::regex("\\d{4}-\\d{2}-\\d{2}")))
+		return false;
+	return true;
+}
+
 // bool valideDate
-// bool validFloat
