@@ -13,6 +13,10 @@
 // Standard Libraries
 
 # include <iostream>
+# include <map>
+# include <string>
+# include <fstream>
+# include <sstream>
 
 // ************************************************************************** //
 //                            BitcoinExchange Class                           //
@@ -20,6 +24,10 @@
 
 class	BitcoinExchange
 {
+	private:
+
+		std::map<std::string, float>		_exchangeRate;
+
 	public:
 
 		BitcoinExchange();
@@ -28,6 +36,9 @@ class	BitcoinExchange
 		BitcoinExchange( const BitcoinExchange & );
 
 		BitcoinExchange & operator = ( const BitcoinExchange & );
+
+		void parseExchangeRateFile( const std::string & );
+		void printExchangeRate() const;
 
 		class Exception;
 };

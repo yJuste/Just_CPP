@@ -11,5 +11,9 @@
 
 int	main(void)
 {
+	BitcoinExchange		btc;
+
+	btc.parseExchangeRateFile("data.csv");
+	btc.printExchangeRate();
 	return 0;
 }
