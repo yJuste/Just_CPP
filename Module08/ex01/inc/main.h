@@ -13,6 +13,7 @@
 // Standard Libraries
 
 # include <iostream>
+# include <cstdlib>
 
 // ************************************************************************** //
 //                                 Dependences                                //

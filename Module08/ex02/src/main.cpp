@@ -39,7 +39,6 @@ int	main(void)
 	std::stack<int> s(mstack);
 	return 0;
 }
-
 // FOR LIST;
 /*
 int	main(void)

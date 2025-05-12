@@ -79,7 +79,7 @@ double	ScalarConverter::toDouble( const std::string & s )
 
 	std::string		res = s;
 
-	if (s.back() == 'f')
+	if (s.at(s.length() - 1) == 'f')
 		res = s.substr(0, s.length() - 1);
 
 	double			n = 0.0;
@@ -101,7 +101,7 @@ float	ScalarConverter::toFloat( const std::string & s )
 
 	std::string		res = s;
 
-	if (s.back() == 'f')
+	if (s.at(s.length() - 1) == 'f')
 		res = s.substr(0, s.length() - 1);
 
 	float			n = 0.0f;

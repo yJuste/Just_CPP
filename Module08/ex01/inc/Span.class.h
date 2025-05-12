@@ -13,6 +13,8 @@
 // Standard Libraries
 
 # include <iostream>
+# include <vector>
+# include <cstdlib>
 
 // ************************************************************************** //
 //                                 Span Class                                 //

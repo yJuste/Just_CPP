@@ -12,6 +12,8 @@
 
 // Standard Libraries
 
+# include <stack>
+# include <deque>
 # include <list>
 
 // ************************************************************************** //
@@ -19,7 +21,6 @@
 // ************************************************************************** //
 
 template <typename T, typename Container = std::deque<T> >
-// FOR LIST: template <typename T, typename Container = std::list<T> >
 
 class	MutantStack : public std::stack<T, Container>
 {
