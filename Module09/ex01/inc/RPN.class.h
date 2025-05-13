@@ -14,6 +14,8 @@
 
 # include <iostream>
 # include <stack>
+# include <sstream>
+# include <algorithm>
 
 // ************************************************************************** //
 //                                   RPN Class                                //
@@ -24,6 +26,10 @@ class	RPN
 	private:
 
 		std::stack<float>		_operate;
+
+		bool parseRpn( const std::string & ) const;
+		void printStack( std::stack<float> ) const;
+
 	public:
 
 		RPN();
@@ -33,10 +39,13 @@ class	RPN
 
 		RPN & operator = ( const RPN & );
 
-		static void rpn( const std::string & );
-		static bool parseRpn( const std::string & );
+		void rpn( const std::string & );
 
 		class Exception;
+		class ParsingException;
+		class DivisionByZeroException;
+		class TooFewNumbersException;
+		class NoResultFoundException;
 };
 
 std::ostream & operator << ( std::ostream &, const RPN & );
@@ -46,6 +55,26 @@ std::ostream & operator << ( std::ostream &, const RPN & );
 class	RPN::Exception : public std::exception
 {
 	public: const char * what() const throw() { return "\033[31merror\033[0m: Exception RPN"; }
+};
+
+class	RPN::ParsingException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Error during the parsing."; }
+};
+
+class	RPN::DivisionByZeroException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Division by zero is forbidden."; }
+};
+
+class	RPN::TooFewNumbersException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: Arithmetic operation used while there are no numbers enough in the stack."; }
+};
+
+class	RPN::NoResultFoundException : public std::exception
+{
+	public: const char * what() const throw() { return "\033[31merror\033[0m: No result found because too many numbers in the stack."; }
 };
 
 #endif
