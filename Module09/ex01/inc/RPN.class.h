@@ -13,6 +13,7 @@
 // Standard Libraries
 
 # include <iostream>
+# include <stack>
 
 // ************************************************************************** //
 //                                   RPN Class                                //
@@ -20,6 +21,9 @@
 
 class	RPN
 {
+	private:
+
+		std::stack<float>		_operate;
 	public:
 
 		RPN();
@@ -28,6 +32,9 @@ class	RPN
 		RPN( const RPN & );
 
 		RPN & operator = ( const RPN & );
+
+		static void rpn( const std::string & );
+		static bool parseRpn( const std::string & );
 
 		class Exception;
 };
