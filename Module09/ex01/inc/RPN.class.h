@@ -27,8 +27,8 @@ class	RPN
 
 		std::stack<float>		_operate;
 
-		bool parseRpn( const std::string & ) const;
-		void printStack( std::stack<float> ) const;
+		bool _parseRpn( const std::string & ) const;
+		void _printStack( std::stack<float> ) const;
 
 	public:
 

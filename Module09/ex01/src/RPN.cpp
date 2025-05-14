@@ -26,7 +26,7 @@ std::ostream	&operator << ( std::ostream & o, const RPN & r ) { (void)r; return 
 
 void	RPN::rpn( const std::string & operation )
 {
-	if (!parseRpn(operation))
+	if (!_parseRpn(operation))
 		throw ParsingException();
 
 	std::stringstream		ss(operation);
@@ -79,7 +79,7 @@ void	RPN::rpn( const std::string & operation )
 
 // Private
 
-bool	RPN::parseRpn( const std::string & s ) const
+bool	RPN::_parseRpn( const std::string & s ) const
 {
 	std::stringstream		ss(s);
 	std::string			sub;
@@ -101,7 +101,7 @@ bool	RPN::parseRpn( const std::string & s ) const
 	return true;
 }
 
-void	RPN::printStack( std::stack<float> stack ) const
+void	RPN::_printStack( std::stack<float> stack ) const
 {
 	int		i = 0;
 

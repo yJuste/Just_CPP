@@ -30,14 +30,14 @@ class	BitcoinExchange
 
 		std::multimap<std::string, float>	_exchangeRate;
 
-		void printDB() const;
+		void _printDB() const;
 
-		void processLine( const std::string & ) const;
+		void _processLine( const std::string & ) const;
 
-		bool validDate( const std::string & ) const;
-		bool regexDate( const std::string & ) const;
+		bool _validDate( const std::string & ) const;
+		bool _regexDate( const std::string & ) const;
 
-		std::string trim( const std::string & ) const;
+		std::string _trim( const std::string & ) const;
 
 	public:
 

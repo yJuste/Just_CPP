@@ -50,10 +50,10 @@ void	BitcoinExchange::parseDB( const std::string & filename )
 		if (!std::getline(ss1, date, ',') || !std::getline(ss1, value))
 			{ infile.close(); throw BadDBException(); }
 
-		date = trim(date);
-		value = trim(value);
+		date = _trim(date);
+		value = _trim(value);
 
-		if (!validDate(date))
+		if (!_validDate(date))
 			{ infile.close(); throw BadDBException(); }
 
 		std::stringstream	ss2(value);
@@ -81,13 +81,13 @@ void	BitcoinExchange::displayRate( const std::string & filename ) const
 	std::getline(infile, line);
 
 	while (std::getline(infile, line))
-		processLine(line);
+		_processLine(line);
 	infile.close();
 }
 
 // Private
 
-void	BitcoinExchange::printDB() const
+void	BitcoinExchange::_printDB() const
 {
 	std::multimap<std::string, float>::const_iterator		it;
 
@@ -95,7 +95,7 @@ void	BitcoinExchange::printDB() const
 		std::cout << it->first << "," << it->second << std::endl;
 }
 
-void	BitcoinExchange::processLine( const std::string & line ) const
+void	BitcoinExchange::_processLine( const std::string & line ) const
 {
 	std::stringstream	ss1(line);
 	std::string		date;
@@ -104,10 +104,10 @@ void	BitcoinExchange::processLine( const std::string & line ) const
 	if (!std::getline(ss1, date, '|') || !std::getline(ss1, value))
 		return (void)(std::cerr << "Error: bad input => " << line << std::endl);
 
-	date = trim(date);
-	value = trim(value);
+	date = _trim(date);
+	value = _trim(value);
 
-	if (!validDate(date))
+	if (!_validDate(date))
 		return (void)(std::cerr << "Error: bad input => " << line << std::endl);
 
 	std::stringstream	ss2(value);
@@ -138,9 +138,9 @@ void	BitcoinExchange::processLine( const std::string & line ) const
 	std::cout << date << " => " << val << " = " << (val * rate) << std::endl;
 }
 
-bool	BitcoinExchange::validDate( const std::string & date ) const
+bool	BitcoinExchange::_validDate( const std::string & date ) const
 {
-	if (!regexDate(date))
+	if (!_regexDate(date))
 		return false;
 
 	int			year;
@@ -176,7 +176,7 @@ bool	BitcoinExchange::validDate( const std::string & date ) const
 	return true;
 }
 
-bool	BitcoinExchange::regexDate( const std::string & date ) const
+bool	BitcoinExchange::_regexDate( const std::string & date ) const
 {
 	if (date.length() != 10)
 		return false;
@@ -190,7 +190,7 @@ bool	BitcoinExchange::regexDate( const std::string & date ) const
 	return true;
 }
 
-std::string	BitcoinExchange::trim( const std::string & s ) const
+std::string	BitcoinExchange::_trim( const std::string & s ) const
 {
 	size_t			start;
 	size_t			end;
