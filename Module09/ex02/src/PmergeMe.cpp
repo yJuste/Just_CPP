@@ -18,7 +18,15 @@ PmergeMe::PmergeMe( const PmergeMe & r ) { *this = r; }
 
 // Operator Overload
 
-PmergeMe	&PmergeMe::operator = ( const PmergeMe & p ) { (void)p; return *this; }
+PmergeMe	&PmergeMe::operator = ( const PmergeMe & p )
+{
+	if (this != &p)
+	{
+		_vtab = p._vtab;
+		_ltab = p._ltab;
+	}
+	return *this;
+}
 
 std::ostream	&operator << ( std::ostream & o, const PmergeMe & p ) { (void)p; return o << "PmergeMe Operator <<"; }
 
