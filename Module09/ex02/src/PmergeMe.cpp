@@ -54,7 +54,7 @@ void	PmergeMe::mergeMe( const char **argv )
 	_algorithmFordJohnson(_ltab);
 	lend = clock();
 
-	std::cout << "After:    "; _printLTab(); std::cout << std::endl;
+	std::cout << "After:    "; _printVTab(); std::cout << std::endl;
 
 	std::cout << "Time to process a range of " << "\033[32m" << _vtab.size() << "\033[0m" << " elements with std::vector :  " << "\033[32m" << static_cast<double>(vend - vstart) * 1e3 / CLOCKS_PER_SEC << "\033[0m" << " ms" << std::endl;
 
