@@ -21,6 +21,6 @@ typename T::iterator	easyfind( T & t, int to_find )
 		if (*it == to_find)
 			return it;
 	}
-
-	throw std::logic_error("easyfind: nothing was found.");
+	std::cout << "Your number " << to_find << " was not found." << std::endl;
+	throw std::logic_error("\033[93measyfind error.\033[0m");
 }
