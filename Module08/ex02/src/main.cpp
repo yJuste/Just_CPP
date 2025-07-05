@@ -14,6 +14,7 @@ int	main(void)
 {
 	MutantStack<int> mstack;
 
+	std::cout << "\033[33mMutantStack with Deque:\033[0m" << std::endl;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
@@ -39,12 +40,14 @@ int	main(void)
 	std::stack<int> s(mstack);
 	return 0;
 }
+
 // FOR LIST;
 /*
 int	main(void)
 {
 	MutantStack< int, std::list<int> > mstack;
 
+	std::cout << "\033[33mMutantStack with Lists:\033[0m" << std::endl;
 	mstack.push(5);
 	mstack.push(17);
 	std::cout << mstack.top() << std::endl;
