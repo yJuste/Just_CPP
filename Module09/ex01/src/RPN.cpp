@@ -18,7 +18,7 @@ RPN::RPN( const RPN & r ) { *this = r; }
 
 // Operator Overload
 
-RPN	&RPN::operator = ( const RPN & r ) { (void)r; return *this; }
+RPN	&RPN::operator = ( const RPN & r ) { if (this != &r) _operate = r._operate; return *this; }
 
 std::ostream	&operator << ( std::ostream & o, const RPN & r ) { (void)r; return o << "RPN Operator <<"; }
 
@@ -41,13 +41,12 @@ void	RPN::rpn( const std::string & operation )
 
 			float			first;
 			float			second;
+			float			res;
 
 			second = _operate.top();
 			_operate.pop();
 			first = _operate.top();
 			_operate.pop();
-
-			float			res;
 
 			if (sub == "+")
 				res = first + second;
@@ -95,7 +94,7 @@ bool	RPN::_parseRpn( const std::string & s ) const
 		if (!(ss2 >> n))
 			return false;
 
-		if (n > 10 || n < -10)
+		if (n >= 10 || n <= -10)
 			return false;
 	}
 	return true;
