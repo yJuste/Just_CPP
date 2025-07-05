@@ -24,7 +24,7 @@ Bureaucrat::Bureaucrat( const std::string & name, int grade ) : _name( name ), _
 
 // Operator Overload
 
-Bureaucrat	&Bureaucrat::operator = ( const Bureaucrat & b ) { (void)b; return *this; }
+Bureaucrat	&Bureaucrat::operator = ( const Bureaucrat & b ) { if (this != &b) { _grade = b.getGrade(); } return *this; }
 
 std::ostream	&operator << ( std::ostream & o, const Bureaucrat & b ) { return o << "\033[33m" << b.getName() << "\033[0m" << ", bureaucrat grade " << "\033[33m" << b.getGrade() << "\033[0m" << std::endl; }
 
