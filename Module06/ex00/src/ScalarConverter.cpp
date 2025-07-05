@@ -70,11 +70,11 @@ int	ScalarConverter::toInt( const std::string & s )
 
 double	ScalarConverter::toDouble( const std::string & s )
 {
-	if (s == "nan")
+	if (s == "nan" || s  == "nanf")
 		return std::numeric_limits<double>::quiet_NaN();
-	else if (s == "+inf")
+	else if (s == "+inf" || s == "inf" || s == "+inff" || s == "inff")
 		return std::numeric_limits<double>::infinity();
-	else if (s == "-inf")
+	else if (s == "-inf" || s == "-inff")
 		return -std::numeric_limits<double>::infinity();
 
 	std::string		res = s;
@@ -92,11 +92,11 @@ double	ScalarConverter::toDouble( const std::string & s )
 
 float	ScalarConverter::toFloat( const std::string & s )
 {
-	if (s == "nan")
+	if (s == "nan" || s == "nanf")
 		return std::numeric_limits<float>::quiet_NaN();
-	else if (s == "+inf")
+	else if (s == "+inf" || s == "inf" || s == "+inff" || s == "inff")
 		return std::numeric_limits<float>::infinity();
-	else if (s == "-inf")
+	else if (s == "-inf" || s == "-inff")
 		return -std::numeric_limits<float>::infinity();
 
 	std::string		res = s;
