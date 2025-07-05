@@ -27,6 +27,8 @@ std::ostream	&operator << ( std::ostream & o, const Span & s ) { (void)s; return
 
 void	Span::addNumber( int n )
 {
+	if (n < 0)
+		throw Exception();
 	if (_tab.size() >= _n)
 		throw Exception();
 	_tab.push_back(n);

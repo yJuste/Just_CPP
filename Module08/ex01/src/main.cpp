@@ -9,16 +9,20 @@
 
 # include "main.h"
 
+# ifndef MAX
+#  define MAX 1000000
+# endif
+
 int	main(void)
 {
 
 	std::cout << "Test sur une dizaine de milliers de chiffres: " << std::endl;
 	try
 	{
-		Span		rangeMoi(10000);
+		Span		rangeMoi(MAX);
 
 		std::srand(time(NULL));
-		for (int i = 0; i < 10000; ++i)
+		for (int i = 0; i < MAX; ++i)
 			rangeMoi.addNumber(rand());
 		std::cout << rangeMoi.shortestSpan() << std::endl;
 		std::cout << rangeMoi.longestSpan() << std::endl;
@@ -28,17 +32,12 @@ int	main(void)
 	std::cout << "Test manuel: " << std::endl;
 	try
 	{
-		Span		eclair(10);
+		Span		eclair(4);
 
-		eclair.addNumber(-5);
-		eclair.addNumber(-30);
+		eclair.addNumber(5);
+		eclair.addNumber(30);
 		eclair.addNumber(-2);
 		eclair.addNumber(0);
-		eclair.addNumber(34);
-		eclair.addNumber(13);
-		eclair.addNumber(0);
-		eclair.addNumber(0);
-		eclair.addNumber(-1);
 
 		std::cout << eclair.shortestSpan() << std::endl;
 		std::cout << eclair.longestSpan() << std::endl;
