@@ -25,10 +25,11 @@ YELLOW			= "\033[93m"
 
 
 # Rules
-all: format $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJ)
 	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -I $(INC_DIR) $(FLAGS)
+	@$(MAKE) format
 	@echo $(GREEN)"--- EXECUTABLE ./$(NAME) is ready ---"$(RESET)
 
 clean:
@@ -82,9 +83,6 @@ rf: re
 	rm -f $(NAME)
 	@echo $(RED)"--- EXECUTABLE ./$(NAME) is removed ---"$(RESET)
 
-swp:
-	find . -type f -name ".*.sw*" -exec rm -f {} \;
-
 s:
 	ls -lh $(NAME)
 
@@ -94,4 +92,4 @@ val:
 leak:
 	leaks --atExit -- ./$(NAME)
 
-.PHONY: all bonus clean fclean re sub rf s help norm val leak
+.PHONY: all clean fclean re format sub rf s val leak
