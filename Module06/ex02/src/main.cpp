@@ -53,11 +53,11 @@ void	identify( Base * p )
 
 void	identify( Base & p )
 {
-	try { (void)dynamic_cast<A &>(p); std::cout << "A" << std::endl; return; }
+	try { static_cast<void>(dynamic_cast<A &>(p)); std::cout << "A" << std::endl; return; }
 	catch (...) {}
-	try { (void)dynamic_cast<B &>(p); std::cout << "B" << std::endl; return; }
+	try { static_cast<void>(dynamic_cast<B &>(p)); std::cout << "B" << std::endl; return; }
 	catch (...) {}
-	try { (void)dynamic_cast<C &>(p); std::cout << "C" << std::endl; return; }
+	try { static_cast<void>(dynamic_cast<C &>(p)); std::cout << "C" << std::endl; return; }
 	catch (...) {}
 	std::cout << "\033[91m" << "error" << "\033[0m" << ": Identification Reference failed" << std::endl;
 }
