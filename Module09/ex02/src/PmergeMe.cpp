@@ -198,7 +198,7 @@ void	PmergeMe::_printLTab() const
 	for (std::list<int>::const_iterator it = _ltab.begin(); it != _ltab.end(); ++it)
 	{
 		std::cout << *it;
-		if (std::next(it) != _ltab.end())
+		if (++it != _ltab.end())
 			std::cout << " ";
 	}
 }
